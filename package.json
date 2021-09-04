@@ -1,0 +1,19 @@
+{
+  "name": "emploi-du-temps",
+  "version": "1.0.0",
+  "description": "Obtention d'un emploi du temps configurable depuis l'ent.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Me-k-01/Emploi-du-temps.git"
+  },
+  "author": "Me-k-01",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Me-k-01/Emploi-du-temps/issues"
+  },
+  "homepage": "https://github.com/Me-k-01/Emploi-du-temps#readme"
+}
