@@ -9,10 +9,15 @@
     // Create connection
     try {
       $conn = new PDO("mysql:host=$servername;dbname=s48541_Test", $username, $password);
-    } catch (Exeption $e) {
-     die("Connection failed: " . $e->getMessage());
+    } catch (Exeption $err) {
+     die("Connection failed: " . $err->getMessage());
     }
     echo "Connected successfully";
+
+    $res = $conn->query('SELECT * FROM `21L3-INF`');
+    while ($donnees = $res->fetch()) {
+      echo $donnees['matiere'];
+    }
     ?>
     <main>
 
