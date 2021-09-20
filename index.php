@@ -1,24 +1,38 @@
-<?php require_once 'header.php' ?>
+<?php require 'head.php' ?>
 
   <body>
-    <header>test</header>
+    <header>
+    </header>
     <?php
-    require "creditential.php";
-    // Create connection
-    try {
-      $conn = new PDO("mysql:host=$servername;dbname=s48541_Test", $username, $password);
-    } catch (Exeption $err) {
-     die("Connection failed: " . $err->getMessage());
-    }
-    echo "Connected successfully";
+      require "creditential.php";
+      // Create connection
+      try {
+        $conn = new PDO("mysql:host=$servername;dbname=$databasename", $username, $password);
+      } catch (Exeption $err) {
+        die("Connection failed: " . $err->getMessage());
+      }
 
-    $res = $conn->query('SELECT * FROM `21L3-INF`');
-    while ($donnees = $res->fetch()) {
-      echo $donnees['matiere'];
-    }
+      $schedule = $conn->query('SELECT * FROM `21L3-INF` ORDER BY `horaire`');
     ?>
     <main>
-
+      <ul>
+        <?php
+          function divify($data) {
+            $div = '';
+            foreach ($data as $key => $value) {
+              $div .= "<div class='$key'>$value</div>";
+            }
+            return $div;
+          }
+          while ($data = $schedule->fetch(PDO::FETCH_ASSOC)) {
+            echo "<li>" . divify($data) . "</li>";
+          }
+        ?>
+      </ul>
+      <table>
+        <tbody>
+        </tbody>
+      </table>
     </main>
   </body>
 </html>
