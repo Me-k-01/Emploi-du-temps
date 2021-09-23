@@ -12,7 +12,7 @@
       } catch (Exeption $err) {
         die("Connection failed: " . $err->getMessage());
       }
-      $schedule = $conn->query('SELECT * FROM `21L3-INF` ORDER BY `horaire`');
+      $schedule = $conn->query('SELECT * FROM Schedule WHERE Schedule.filiere="21L3-INF" ORDER BY horaire');
     ?>
     <main>
       <h1>Emploi du temps</h1>

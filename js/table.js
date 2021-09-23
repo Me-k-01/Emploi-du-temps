@@ -29,8 +29,10 @@ class Table{
       }
     }
   }
-  getId({date, horaire}) {
-    return date.toLowerCase() + " " + horaire.split(':')[1];
+  getId({jour, horaire}) {
+    console.log(horaire);
+    const h = parseInt(horaire.substring(0, 2));
+    return jour.toLowerCase() + "-" + h;
   }
   set(id, div) {
     console.log(id);
