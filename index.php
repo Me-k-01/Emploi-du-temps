@@ -15,20 +15,19 @@
       $schedule = $conn->query('SELECT * FROM `21L3-INF` ORDER BY `horaire`');
     ?>
     <main>
-      <ul>
-        <?php
-          function divify($data) {
-            $div = '';
-            foreach ($data as $key => $value) {
-              $div .= "<div class='$key'>$value</div>";
-            }
-            return $div;
-          }
+      <script type="text/javascript">
+        matters = [
+          <?php
           while ($data = $schedule->fetch(PDO::FETCH_ASSOC)) {
-            echo "<li>" . divify($data) . "</li>";
+            echo "{";
+            foreach ($data as $key => $value) {
+              echo $key . ":" . json_encode($value), ", ";
+            }
+            echo "},";
           }
-        ?>
-      </ul>
+          ?>
+        ];
+      </script>
       <table>
         <tbody>
         </tbody>
