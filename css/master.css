@@ -7,21 +7,26 @@ body, main {
 }
 
 table {
+margin: 0;
+padding: 0;
 
 }
 
 tr {
+  margin: 0;
+  padding: 0;
 
 }
-th {
-  border: 1px solid black;
-
-  width: 100px;
+th, td {
+  border: 4px solid rgb(24, 26, 25, 0.7);
   height: 2em;
+  margin: 0;
+  padding: 5px;
+}
+th {
+
 }
 td {
   position: relative;
   width: 100px;
-  height: 2em;
-  border: 1px solid black;
 }
