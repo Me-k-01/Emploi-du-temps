@@ -5,3 +5,18 @@
 body, main {
   background: #262626;
 }
+
+table {
+
+}
+
+tr {
+
+}
+
+td, th {
+  position: relative;
+  width: 100px;
+  height: 2em;
+  border: 1px solid black;
+}
