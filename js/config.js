@@ -1,22 +1,22 @@
 class Config {
-  static load(name) {
-    return localStorage.getItem(name) || window.preset[name];
-  }
-
   constructor(name) {
     this.name = name;
-    this.map = Config.load(name);
+    this.load();
   }
   add(title, group, color) {
     this.map[title] = {group, color};
   }
 
+  load() {
+    this.map = localStorage.getItem(this.name) || preset[this.name];
+  }
   save() {
-    localStorage.setItem(this.name)
+    localStorage.setItem(this.name, JSON.stringify(this.map))
   };
 
 
   getColor(title) {
+    // if (! this.map[title]) return "rgb(120, 119, 231)";
     return this.map[title].color ;
   }
   contains(title, group) {
