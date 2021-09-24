@@ -51,9 +51,9 @@ class Table{
 
   fill(matters, groupFilter) {
     for (const matter of matters) {
-      // if (matter.groupe == groupFilter.titre) {
+      if (groupFilter.has(matter.groupe)) {
         this.set(this.getId(matter), Table.formatDOM(matter));
-      // }
+      }
     }
   }
 }

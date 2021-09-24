@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="favicon.png">
     <link rel="stylesheet" type="text/css" href="/css/master.css">
     <link rel="stylesheet" type="text/css" href="/css/table.css">
+
     <?php require "creditential.php";
       try { // Create connection
         $conn = new PDO("mysql:host=$servername;dbname=$databasename", $username, $password);
@@ -28,6 +29,7 @@
         ?>
       ];
     </script>
+    <script src="/js/filter.js" charset="utf-8" defer></script>
     <script src="/js/table.js" charset="utf-8" defer></script>
     <script src="/js/main.js" charset="utf-8" defer></script>
   </head>
