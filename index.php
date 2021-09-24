@@ -29,7 +29,8 @@
         ?>
       ];
     </script>
-    <script src="/js/filter.js" charset="utf-8" defer></script>
+    <script src="/js/preset.js" charset="utf-8" defer></script>
+    <script src="/js/config.js" charset="utf-8" defer></script>
     <script src="/js/table.js" charset="utf-8" defer></script>
     <script src="/js/main.js" charset="utf-8" defer></script>
   </head>

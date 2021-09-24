@@ -1,10 +1,11 @@
 class Config {
   static load(name) {
-    return localStorage.getItem(name) || new Config(name);
+    return localStorage.getItem(name) || window.preset[name];
   }
+
   constructor(name) {
     this.name = name;
-    this.map = {};
+    this.map = Config.load(name);
   }
   add(title, group, color) {
     this.map[title] = {group, color};
