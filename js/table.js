@@ -40,7 +40,7 @@ class Table{
     }
   }
 
-  getId({jour, horaire}) {
+  static getId({jour, horaire}) {
     const h = parseInt(horaire.substring(0, 2));
     return jour.toLowerCase() + "-" + h;
   }
@@ -49,10 +49,11 @@ class Table{
     doc.getElementById(id).appendChild(div);
   }
 
-  fill(matters, groupFilter) {
+  fill(matters, config) {
     for (const matter of matters) {
-      if (groupFilter.has(matter.groupe)) {
-        this.set(this.getId(matter), Table.formatDOM(matter));
+      // filtrage par nom de groupe suivant la configuration
+      if (config.contains(matter.titre, matter.groupe)) {
+        this.set(Table.getId(matter), Table.formatDOM(matter, config.getColor(matter.titre)));
       }
     }
   }
