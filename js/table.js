@@ -1,7 +1,7 @@
 const doc = document;
 
 class Table{
-  static formatDOM({titre, salle}) { // Matter to DOM element
+  static formatDOM({titre, salle}, color) { // Matter to DOM element
     const container = doc.createElement('div');
     const title = doc.createElement('p');
     title.innerHTML = titre;
@@ -9,6 +9,7 @@ class Table{
     place.innerHTML = salle;
 
     container.append(title, place);
+    container.style.backgroundColor = color;
     return container;
   }
 
