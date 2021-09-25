@@ -16,11 +16,10 @@ class Config {
 
 
   getColor(title) {
-    // if (! this.map[title]) return "rgb(120, 119, 231)";
     return this.map[title].color ;
   }
   contains(title, group) {
-    return this.map[title]?.group === group;
+    return group===null || this.map[title]?.group === group;
   }
 
 }
