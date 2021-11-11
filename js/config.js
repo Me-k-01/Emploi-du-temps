@@ -8,7 +8,7 @@ class Config {
   }
 
   load() {
-    this.map = localStorage.getItem(this.name) || preset[this.name];
+    this.map = localStorage.getItem(this.name) || groups[this.name];
   }
   save() {
     localStorage.setItem(this.name, JSON.stringify(this.map))
@@ -16,10 +16,10 @@ class Config {
 
 
   getColor(title) {
-    return this.map[title].color ;
+    return "rgb(73, 121, 90)";
   }
   contains(title, group) {
-    return group===null || this.map[title]?.group === group;
+    return group === null || this.map[title] === group;
   }
 
 }
