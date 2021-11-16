@@ -4,7 +4,9 @@ table * {
   padding: 0;
 }
 table {
-
+  display: block;
+  height: 100vh;
+  overflow-y: scroll;
 }
 tr {
   display: table-row;
