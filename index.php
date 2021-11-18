@@ -7,7 +7,8 @@
     <link rel="stylesheet" type="text/css" href="/css/master.css">
     <link rel="stylesheet" type="text/css" href="/css/table.css">
 
-    <?php require "creditential.php";
+    <?php
+      require "creditential.php";
       try { // Create connection
         $conn = new PDO("mysql:host=$servername;dbname=$databasename", $username, $password);
       } catch (Exeption $err) {
