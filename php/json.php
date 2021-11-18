@@ -7,7 +7,7 @@
     die("Connection failed: " . $err->getMessage());
   }
   $schedule = $conn->query('SELECT * FROM Schedule WHERE Schedule.filiere="21L3-INF" ORDER BY horaire');
-  $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+  $results = $schedule->fetchAll(PDO::FETCH_ASSOC);
   $json = json_encode($results);
   echo $json;
 ?>

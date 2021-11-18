@@ -9,7 +9,7 @@
     <script type="text/javascript" async>
       const matters = [
         <?php
-        require "creditential.php";
+        require "php/creditential.php";
         try { // Create connection
           $conn = new PDO("mysql:host=$servername;dbname=$databasename", $username, $password);
         } catch (Exeption $err) {
