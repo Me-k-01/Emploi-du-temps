@@ -6,10 +6,10 @@
     <link rel="shortcut icon" href="favicon.png">
     <link rel="stylesheet" type="text/css" href="/css/master.css">
     <link rel="stylesheet" type="text/css" href="/css/table.css">
-    <script src="/php/data.php" type="text/javascript" charset="utf-8" defer></script>
     <script src="/js/preset.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="/js/config.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="/js/table.js" type="text/javascript" charset="utf-8" defer></script>
+    <script src="/php/data.php" type="text/javascript" charset="utf-8" defer></script>
     <script src="/js/main.js" type="text/javascript" charset="utf-8" defer></script>
   </head>
   <body>
