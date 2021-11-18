@@ -5,9 +5,9 @@ const getJSON = function(url, callback) {
     xhr.onload = function() {
       const status = xhr.status;
       if (status === 200) {
-        callback(null, xhr.response);
+        callback(xhr.response, null);
       } else {
-        callback(status, xhr.response);
+        callback(xhr.response, status);
       }
     };
     xhr.send();
