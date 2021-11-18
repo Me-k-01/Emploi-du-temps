@@ -1,5 +1,4 @@
-const groups = {
-  "21L3-INF": {
+const presets = {
     "Technologies du web 3": null,
     "Programmation fonctionnelle": "A",
     "Anglais": "1",
@@ -10,5 +9,5 @@ const groups = {
     "Réseaux 3": "A",
     "Technologies du Web 3": null,
     "Techniques de recherche de stage et d'emploi": "6",
-  }
+
 };

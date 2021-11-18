@@ -4,11 +4,11 @@ class Config {
     this.load();
   }
   add(title, group, color) {
-    this.map[title] = {group, color};
+    this.map[title] = group;
   }
 
   load() {
-    this.map = localStorage.getItem(this.name) || groups[this.name];
+    this.map = localStorage.getItem(this.name) | presets[this.name];
   }
   save() {
     localStorage.setItem(this.name, JSON.stringify(this.map))
