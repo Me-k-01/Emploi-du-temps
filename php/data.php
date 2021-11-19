@@ -6,7 +6,7 @@ let matters = <?php
   } catch (Exeption $err) {
     die("Connection failed: " . $err->getMessage());
   }
-  $results = $conn->query('SELECT * FROM Schedule WHERE Schedule.filiere="21L3-INF" ORDER BY horaire')
-    ->fetchAll(PDO::FETCH_ASSOC);
+  $sql = 'SELECT * FROM Schedule WHERE Schedule.filiere="21L3-INF" ORDER BY horaire'; 
+  $results = $conn->query(sql)->fetchAll(PDO::FETCH_ASSOC);
   echo json_encode($results);
 ?>;
