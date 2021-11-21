@@ -1,22 +1,6 @@
 const doc = document;
 
 class Table{
-  formatToDOM({titre, salle}) { // Matter to DOM element
-    const title = doc.createElement('p');
-    title.innerHTML = titre;
-    title.classList.add('title');
-
-    const room = doc.createElement('p');
-    room.classList.add('salle');
-    room.innerHTML = salle;
-
-    const container = doc.createElement('div');
-    container.append(title, room);
-    container.classList.add(this.getClass(salle));
-
-    return container;
-  }
-
   constructor(table) {
     this.table = table;
     this.days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
@@ -25,13 +9,20 @@ class Table{
     for (let h = heureMin; h < heureMax; h++) {
       this.hours.push(`${h}h`);
     }
-    this.isReverse = false;
+    this.isReverse = true;
+    this.var = {};
     if (this.isReverse){
       this.create(this.hours, this.days);
       table.classList.add('reverse');
+      this.var.size = 'width';
+      this.var.getSize = 'clientWidth';
+      this.var.pos = 'left';
     } else {
       this.create(this.days, this.hours);
       table.classList.remove('reverse');
+      this.var.size = 'height';
+      this.var.getSize = 'clientHeight';
+      this.var.pos = 'top';
     }
   }
 
@@ -63,6 +54,33 @@ class Table{
     }
   }
 
+  formatToDOM(matter) { // Matter to DOM element
+    const title = doc.createElement('p');
+    title.innerHTML = matter.titre;
+    title.classList.add('title');
+
+    const room = doc.createElement('p');
+    room.classList.add('salle');
+    room.innerHTML = matter.salle;
+
+    const container = doc.createElement('div');
+    container.append(title, room);
+    container.classList.add(this.getClass(matter.salle));
+    return container;
+  }
+  hourToAmount(dateStr) {
+    var hms = dateStr.split(':');
+    return ((+hms[0]) * 3600 + (+hms[1]) * 60 + (+hms[2])) / 3600;
+  }
+  adjustSize(container, {horaire, duree}) {
+    console.log(container[this.var.getSize], this.hourToAmount(duree));
+    // container.style.transform = `translateX(${50}px)`;
+
+    // container.style.width = "200px"
+
+    // console.log(container[this.var.getSize] * this.hourToAmount(duree) + 'px');
+    // container.style[this.var.size] = container[this.var.getSize] * this.hourToAmount(duree) + 'px';
+  }
   getClass(salle) {
     const salleArray = salle.split(' ');
     if (salleArray.length > 0) {
@@ -88,7 +106,9 @@ class Table{
     for (const mtr of matters) {
       // filtrage par nom de groupe suivant la configuration
       if (config.contains(mtr)) {
-        this.set(this.makeId(mtr.jour, mtr.horaire), this.formatToDOM(mtr));
+        const div = this.formatToDOM(mtr);
+        this.set(this.makeId(mtr.jour, mtr.horaire), div);
+        this.adjustSize(div, mtr);
       }
     }
   }

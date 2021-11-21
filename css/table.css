@@ -14,19 +14,16 @@ table {
 }
 tr, td {
   height: var(--height);
-  max-height: var(--height);
   min-height: var(--height);
   width: var(--width);
-  max-width: var(--width);
   min-width: var(--width);
 }
 td { border: 4px solid var(--dark);}
 th { background-color: var(--dark);}
 td div {
-  /* position: relative; */
   display: flex;
-  max-height: inherit;
-  max-width: var(--width);
+  /* position: absolute; */
+  height: var(--height);
   width: var(--width);
 }
 .reverse td div {
@@ -41,21 +38,29 @@ td div {
 .left-header {
   padding: 0 10px;
   position: relative;
-  transform: translateY(calc(-1/2* var(--height)));
+  transform: translateY(calc(-1/2 * var(--height)));
 }
 .reverse .top-header {
   position: relative;
-  transform: translateX(calc(-1/2* var(--width)));
+  transform: translateX(calc(-1/2 * var(--width)));
 }
 .reverse .left-header {
   transform: none;
 }
 td div div {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
+  /* top: 0;
+  left: 0; */
   height: var(--height);
   width: var(--width);
+  /* max-height: var(--height);
+  max-width: var(--width); */
+  /* left: 50px; */
+  /* transform: translateX(50px); */
+  /* max-width: var(--width); */
   overflow-y: scroll;
 }
 
