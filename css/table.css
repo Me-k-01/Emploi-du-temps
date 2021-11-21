@@ -4,8 +4,12 @@ table {
   height: 100vh;
   /* overflow-y: scroll; */
   border-collapse: collapse;
-  --height: 100px;
+  --height: 80px;
   --width: 200px;
+}
+.reverse {
+  --width: 150px;
+  --height: 100px;
 }
 
 tr, td {
@@ -31,16 +35,20 @@ td div {
 }
 .reverse td div {
   width: auto;
+  height: var(--height);
   flex-direction: column;
 }
 
 .title {font-weight: bold; font-size: 1em;}
 .salle {font-size: 0.9em;}
 
+td div div p {
+  margin: auto;
+  text-align: center;
+}
 td div div {
   padding: 15px;
-  display: inline;
-  float: left;
+  /* display: inline; */
   overflow-y: scroll;
   background: linear-gradient(45deg, rgba(17, 56, 70, 1) 0%, rgba(49, 161, 136, 1) 100%);
 }
