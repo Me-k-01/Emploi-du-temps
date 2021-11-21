@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="favicon.png">
     <link rel="stylesheet" type="text/css" href="/css/master.css">
     <link rel="stylesheet" type="text/css" href="/css/table.css">
+    <link rel="stylesheet" type="text/css" href="/css/color.css">
     <script src="/js/preset.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="/js/config.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="/js/table.js" type="text/javascript" charset="utf-8" defer></script>

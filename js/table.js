@@ -25,7 +25,7 @@ class Table{
     for (let h = heureMin; h < heureMax; h++) {
       this.hours.push(`${h}h`);
     }
-    this.isReverse = true;
+    this.isReverse = false;
     if (this.isReverse){
       this.create(this.hours, this.days);
       table.classList.add('reverse');
@@ -41,13 +41,13 @@ class Table{
     titleRow.id = 'header';
     titleRow.insertCell(0).outerHTML = `<th scope="col"></th>`;
     for (const h of horizontalHeader) {
-      titleRow.insertCell(-1).outerHTML = `<th scope="col" id="${h.toLowerCase()}">${h}</th>`;
+      titleRow.insertCell(-1).outerHTML = `<th scope="col" id="${h.toLowerCase()}" class="top-header">${h}</th>`;
     }
     let i = 0, j = 0
     for (const v of verticalHeader) {
       const row = this.table.insertRow(-1);
       // Colone des heures
-      row.insertCell(0).outerHTML = `<th scope="row" id="${v.toLowerCase()}" class="header">${v}</th>`;
+      row.insertCell(0).outerHTML = `<th scope="row" id="${v.toLowerCase()}" class="left-header">${v}</th>`;
       // Remplissage
       for (const h of horizontalHeader) {
         row.insertCell(-1).outerHTML = `<td><div id="${this.isReverse? this.makeId(v,h): this.makeId(h,v)}"></div></td>`;
