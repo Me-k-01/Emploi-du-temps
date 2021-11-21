@@ -1,4 +1,5 @@
 let matters = <?php
+  header("Content-Type: text/javascript");
   require "creditential.php";
 
   try { // Create connection
@@ -6,7 +7,7 @@ let matters = <?php
   } catch (Exeption $err) {
     die("Connection failed: " . $err->getMessage());
   }
-  $sql = 'SELECT * FROM Schedule WHERE Schedule.filiere="21L3-INF" ORDER BY horaire'; 
-  $results = $conn->query(sql)->fetchAll(PDO::FETCH_ASSOC);
+  $sql = 'SELECT * FROM Schedule ORDER BY horaire';  // WHERE Schedule.filiere="21L3-INF"
+  $results = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
   echo json_encode($results);
 ?>;

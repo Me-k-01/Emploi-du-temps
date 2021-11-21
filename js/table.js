@@ -1,7 +1,7 @@
 const doc = document;
 
 class Table{
-  static formatDOM({titre, salle}) { // Matter to DOM element
+  static formatToDOM({titre, salle}) { // Matter to DOM element
     const container = doc.createElement('div');
     const title = doc.createElement('p');
     title.innerHTML = titre;
@@ -16,35 +16,48 @@ class Table{
 
   constructor(table) {
     this.table = table;
-    this.heureMin = 8;
-    this.heureMax = 18;
-    this.create();
+    this.days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+    this.hours = [];
+    const heureMin = 8, heureMax = 19;
+    for (let h = heureMin; h < heureMax; h++) {
+      this.hours.push(`${h}h`);
+    }
+    this.isReverse = false;
+    if (this.isReverse)
+      this.create(this.days, this.hours);
+    else
+      this.create(this.hours, this.days);
   }
 
-  create() {
-    const days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
-
+  create(horizontalHeader, verticalHeader) {
     // Lignes des noms de jours
     const titleRow = this.table.insertRow(0);
     titleRow.insertCell(0).outerHTML = `<th scope="col"></th>`;
-    for (const day of days) {
-      titleRow.insertCell(-1).outerHTML = `<th scope="col" id="${day.toLowerCase()}">${day}</th>`;
+    for (const h of horizontalHeader) {
+      titleRow.insertCell(-1).outerHTML = `<th scope="col" id="${h.toLowerCase()}">${h}</th>`;
     }
-
-    for (let h = this.heureMin; h <= this.heureMax; h++) {
+    let i = 0, j = 0
+    for (const v of verticalHeader) {
       const row = this.table.insertRow(-1);
       // Colone des heures
-      row.insertCell(0).outerHTML = `<th scope="row" id="${h}">${h}</th>`;
+      row.insertCell(0).outerHTML = `<th scope="row" id="${v.toLowerCase()}">${v}</th>`;
       // Remplissage
-      for (const day of days) {
-        row.insertCell(-1).outerHTML = `<td id="${day.toLowerCase()}-${h}"></td>`;
+      for (const h of horizontalHeader) {
+        row.insertCell(-1).outerHTML = `<td id="${this.isReverse? this.makeId(h,v): this.makeId(v,h)}"></td>`;
       }
     }
   }
 
-  static getId({jour, horaire}) {
-    const h = parseInt(horaire.substring(0, 2));
-    return jour.toLowerCase() + "-" + h;
+  clear() {
+    for (const d of this.days) {
+      for (const h of this.hours) {
+        doc.getElementById(this.makeId(d, h)).innerHTML = '';
+      }
+    }
+  }
+
+  makeId(day, hour) {
+    return day.toLowerCase() + '-' +  parseInt(hour.substring(0, 2));
   }
 
   set(id, div) {
@@ -52,10 +65,10 @@ class Table{
   }
 
   fill(matters, config) {
-    for (const matter of matters) {
+    for (const mtr of matters) {
       // filtrage par nom de groupe suivant la configuration
-      if (config.contains(matter.titre, matter.groupe)) {
-        this.set(Table.getId(matter), Table.formatDOM(matter));
+      if (config.contains(mtr)) {
+        this.set(this.makeId(mtr.jour, mtr.horaire), Table.formatToDOM(mtr));
       }
     }
   }

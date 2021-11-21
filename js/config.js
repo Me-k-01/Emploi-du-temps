@@ -14,12 +14,11 @@ class Config {
     localStorage.setItem(this.name, JSON.stringify(this.map))
   };
 
-
   getColor(title) {
     return "rgb(73, 121, 90)";
   }
-  contains(title, group) {
-    return group === null || this.map[title] === group;
+  contains({titre, groupe}) {
+    return groupe === null || this.map[titre] === groupe;
   }
 
 }
