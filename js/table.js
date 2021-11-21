@@ -25,7 +25,7 @@ class Table{
     for (let h = heureMin; h < heureMax; h++) {
       this.hours.push(`${h}h`);
     }
-    this.isReverse = false;
+    this.isReverse = true;
     if (this.isReverse){
       this.create(this.hours, this.days);
       table.classList.add('reverse');
