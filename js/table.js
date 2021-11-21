@@ -38,6 +38,7 @@ class Table{
   create(horizontalHeader, verticalHeader) {
     // Lignes des noms de jours
     const titleRow = this.table.insertRow(0);
+    titleRow.id = 'header';
     titleRow.insertCell(0).outerHTML = `<th scope="col"></th>`;
     for (const h of horizontalHeader) {
       titleRow.insertCell(-1).outerHTML = `<th scope="col" id="${h.toLowerCase()}">${h}</th>`;
@@ -46,7 +47,7 @@ class Table{
     for (const v of verticalHeader) {
       const row = this.table.insertRow(-1);
       // Colone des heures
-      row.insertCell(0).outerHTML = `<th scope="row" id="${v.toLowerCase()}">${v}</th>`;
+      row.insertCell(0).outerHTML = `<th scope="row" id="${v.toLowerCase()}" class="header">${v}</th>`;
       // Remplissage
       for (const h of horizontalHeader) {
         row.insertCell(-1).outerHTML = `<td><div id="${this.isReverse? this.makeId(v,h): this.makeId(h,v)}"></div></td>`;
