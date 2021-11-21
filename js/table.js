@@ -1,7 +1,7 @@
 const doc = document;
 
 class Table{
-  static formatToDOM({titre, salle}) { // Matter to DOM element
+  formatToDOM({titre, salle}) { // Matter to DOM element
     const container = doc.createElement('div');
     const title = doc.createElement('p');
     title.innerHTML = titre;
@@ -9,8 +9,7 @@ class Table{
     place.innerHTML = salle;
 
     container.append(title, place);
-    const batiment = salle.substring(3, 5);
-    container.classList.add(batiment);
+    container.classList.add(this.getClass(salle));
     return container;
   }
 
@@ -56,6 +55,19 @@ class Table{
     }
   }
 
+  getClass(salle) {
+    const salleArray = salle.split(' ');
+    if (salleArray.length > 0) {
+      let classStr = salleArray.pop().substring(0, 2);
+      for (const c of salleArray) {
+        if (! c.startsWith(classStr)) {
+          return 'multiple';
+        }
+      }
+      return classStr;
+    }
+  }
+
   makeId(day, hour) {
     return day.toLowerCase() + '-' +  parseInt(hour.substring(0, 2));
   }
@@ -68,7 +80,7 @@ class Table{
     for (const mtr of matters) {
       // filtrage par nom de groupe suivant la configuration
       if (config.contains(mtr)) {
-        this.set(this.makeId(mtr.jour, mtr.horaire), Table.formatToDOM(mtr));
+        this.set(this.makeId(mtr.jour, mtr.horaire), this.formatToDOM(mtr));
       }
     }
   }

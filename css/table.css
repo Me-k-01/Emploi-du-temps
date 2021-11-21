@@ -32,14 +32,22 @@ td div {
   display: inline;
 }
 
+td div {
+  background: linear-gradient(45deg, rgba(17, 56, 70, 1) 0%, rgba(49, 161, 136, 1) 100%);
+}
+
 .JJ {
-  background: linear-gradient(45deg, rgba(149,62,10,1) 0%, rgba(191,181,7,1) 100%);
+  background: linear-gradient(45deg, rgba(149,62,10,1) 0%, rgba(196, 189, 52, 1) 100%);
 }
 
 .MM {
-  background: linear-gradient(45deg, rgba(94,25,25,1) 0%, rgba(140,30,101,1) 100%);
+  background: linear-gradient(45deg, rgba(94,25,25,1) 0%, rgba(157, 52, 120, 1) 100%);
 }
 
 .EB {
-  background: linear-gradient(45deg, rgba(27,25,94,1) 0%, rgba(30,94,140,1) 100%);
+  background: linear-gradient(45deg, rgba(31, 29, 82, 1) 0%, rgba(40, 104, 149, 1) 100%);
+}
+
+.multiple {
+  background: linear-gradient(45deg, rgba(96, 86, 26, 1) 0%, rgba(179, 180, 97, 1) 100%);
 }
