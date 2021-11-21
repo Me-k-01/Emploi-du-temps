@@ -2,14 +2,18 @@ const doc = document;
 
 class Table{
   formatToDOM({titre, salle}) { // Matter to DOM element
-    const container = doc.createElement('div');
     const title = doc.createElement('p');
     title.innerHTML = titre;
-    const place = doc.createElement('p');
-    place.innerHTML = salle;
+    title.classList.add('title');
 
-    container.append(title, place);
+    const room = doc.createElement('p');
+    room.classList.add('salle');
+    room.innerHTML = salle;
+
+    const container = doc.createElement('div');
+    container.append(title, room);
     container.classList.add(this.getClass(salle));
+
     return container;
   }
 
@@ -22,10 +26,13 @@ class Table{
       this.hours.push(`${h}h`);
     }
     this.isReverse = false;
-    if (this.isReverse)
-      this.create(this.days, this.hours);
-    else
+    if (this.isReverse){
       this.create(this.hours, this.days);
+      table.classList.add('reverse');
+    } else {
+      this.create(this.days, this.hours);
+      table.classList.remove('reverse');
+    }
   }
 
   create(horizontalHeader, verticalHeader) {
@@ -42,7 +49,7 @@ class Table{
       row.insertCell(0).outerHTML = `<th scope="row" id="${v.toLowerCase()}">${v}</th>`;
       // Remplissage
       for (const h of horizontalHeader) {
-        row.insertCell(-1).outerHTML = `<td id="${this.isReverse? this.makeId(h,v): this.makeId(v,h)}"></td>`;
+        row.insertCell(-1).outerHTML = `<td><div id="${this.isReverse? this.makeId(v,h): this.makeId(h,v)}"></div></td>`;
       }
     }
   }
