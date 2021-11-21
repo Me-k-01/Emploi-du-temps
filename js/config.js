@@ -34,9 +34,6 @@ class Config {
     this.exclude = exclude;
   }
 
-  getColor(title) {
-    return "rgb(73, 121, 90)";
-  }
   contains({titre, groupe}) {
     // console.log(titre, groupe);
     return (this.include[titre] === groupe || groupe === null) && ! this.exclude[titre];

@@ -9,7 +9,7 @@ class Table{
     for (let h = heureMin; h < heureMax; h++) {
       this.hours.push(`${h}h`);
     }
-    this.isReverse = true;
+    this.isReverse = false;
     this.var = {};
     if (this.isReverse){
       this.create(this.hours, this.days);
