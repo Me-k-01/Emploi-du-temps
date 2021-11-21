@@ -8,6 +8,7 @@ class Table{
     const heureMin = 8, heureMax = 19;
     for (let h = heureMin; h < heureMax; h++) {
       this.hours.push(`${h}h`);
+      // this.hours.push(`${h}h30`);
     }
     this.isReverse = false;
     this.var = {};
@@ -17,12 +18,14 @@ class Table{
       this.var.size = 'width';
       this.var.getSize = 'clientWidth';
       this.var.pos = 'left';
+      this.var.coord = 'X';
     } else {
       this.create(this.days, this.hours);
       table.classList.remove('reverse');
       this.var.size = 'height';
       this.var.getSize = 'clientHeight';
       this.var.pos = 'top';
+      this.var.coord = 'Y';
     }
   }
 
@@ -72,14 +75,10 @@ class Table{
     var hms = dateStr.split(':');
     return ((+hms[0]) * 3600 + (+hms[1]) * 60 + (+hms[2])) / 3600;
   }
-  adjustSize(container, {horaire, duree}) {
-    console.log(container[this.var.getSize], this.hourToAmount(duree));
-    // container.style.transform = `translateX(${50}px)`;
-
-    // container.style.width = "200px"
-
-    // console.log(container[this.var.getSize] * this.hourToAmount(duree) + 'px');
-    // container.style[this.var.size] = container[this.var.getSize] * this.hourToAmount(duree) + 'px';
+  adjustSize(div, {horaire, duree}) {
+    // const size = getComputedStyle(div).getPropertyValue('--total-width');
+    div.style.transform = `translate${this.var.coord}(${div[this.var.getSize] * this.hourToAmount('00'+horaire.substring(2))}px)`;
+    div.style[this.var.size] = div[this.var.getSize] * this.hourToAmount(duree) + 'px';
   }
   getClass(salle) {
     const salleArray = salle.split(' ');
