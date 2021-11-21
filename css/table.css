@@ -22,7 +22,7 @@ tr, td {
 }
 td {
   border: 4px solid var(--dark);
-  background: #262626;
+  /* background: #262626; */
 }
 th { background-color: var(--dark);}
 td div {
@@ -30,7 +30,12 @@ td div {
   position: absolute;
   height: var(--height);
   width: var(--width);
-  /* max-width: var(--width); */
+  /* border: 1px solid var(--dark); */
+  /* outline: 4px solid var(--dark); */
+  /* box-shadow: inset 20px 0 50px 10px rgba(0, 0, 255, .2); */
+
+  /* z-index: 1; */
+  transform: translateY(calc(-1/2 * var(--height)));
 }
 .reverse td div {
   flex-direction: column;
@@ -57,15 +62,15 @@ td div div {
   position: relative;
   flex-direction: column;
   justify-content: center;
-  top: -50%;
+  /* z-index: 10; */
+  /* top: -50%; */
   /* transform: translateY(-50%); */
-  /* top: 0;
-  left: 0; */
   height: var(--height);
   width: var(--width);
+  /* background: transparent; */
+  /* z-index: 10; */
   /* max-height: var(--height);
   max-width: var(--width); */
-  /* left: 50px; */
   /* transform: translateX(50px); */
   /* max-width: var(--width); */
   overflow-y: scroll;
