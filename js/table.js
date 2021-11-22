@@ -1,8 +1,10 @@
 const doc = document;
 
 class Table{
-  constructor(table) {
+  constructor(table, config) {
     this.table = table;
+    this.config = config;
+
     this.days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
     this.hours = [];
     const heureMin = 8, heureMax = 19;
@@ -57,25 +59,31 @@ class Table{
     }
   }
 
-  formatToDOM(matter) { // Matter to DOM element
+  update() {
+    this.clear();
+    this.fill(matters);
+  }
+
+  formatToDOM({titre, salle}) { // Matter to DOM element
     const title = doc.createElement('p');
-    title.innerHTML = matter.titre;
+    title.innerHTML = titre;
     title.classList.add('title');
 
     const room = doc.createElement('p');
     room.classList.add('salle');
-    room.innerHTML = matter.salle;
+    room.innerHTML = salle;
 
     const closeBtn = doc.createElement('button');
     closeBtn.classList.add('cross');
     closeBtn.innerHTML = 'x';
     closeBtn.addEventListener('click', () => {
-      console.log('close');
+      this.config.addExclusion(titre);
+      this.update();
     });
 
     const container = doc.createElement('div');
     container.append(title, room, closeBtn);
-    container.classList.add(this.getClass(matter.salle));
+    container.classList.add(this.getClass(salle));
 
     return container;
   }
@@ -112,10 +120,10 @@ class Table{
     doc.getElementById(id).appendChild(div);
   }
 
-  fill(matters, config) {
+  fill(matters) {
     for (const mtr of matters) {
       // filtrage par nom de groupe suivant la configuration
-      if (config.contains(mtr)) {
+      if (this.config.contains(mtr)) {
         const div = this.formatToDOM(mtr);
         this.set(this.makeId(mtr.jour, mtr.horaire), div);
         // console.log(mtr.titre);
