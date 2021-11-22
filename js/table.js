@@ -68,8 +68,12 @@ class Table{
 
     const container = doc.createElement('div');
     container.append(title, room);
-    container.classList.add(this.getClass(matter.salle));
-    return container;
+    // container.classList.add(this.getClass(matter.salle));
+
+    const scrollWrapper = doc.createElement('div');
+    scrollWrapper.classList.add(this.getClass(matter.salle));
+    scrollWrapper.append(container)
+    return scrollWrapper;
   }
   hourToAmount(dateStr) {
     var hms = dateStr.split(':');

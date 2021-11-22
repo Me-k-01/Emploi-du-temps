@@ -58,27 +58,40 @@ td div {
 .reverse .left-header {
   transform: none;
 }
-td div div {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  justify-content: center;pointer-events: all;
-  /* top: -50%; */
-  /* transform: translateY(-50%); */
-
+td > div > div {
+  position: static;
+  pointer-events: all;
+  transform: none;
   height: var(--height);
   width: var(--width);
-  overflow-x: none;
-  overflow-y: scroll;
-  /* white-space: nowrap; */
+
+  /* overflow-y: none; */
+  /* overflow-y: scroll; */
 }
-.reverse td div div {
-  /* overflow-x: scroll;
-  overflow-y: none; */
+td > div > div > div {
+  /* position: absolute; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: none;
+  /* word-wrap: break-word; */
+  width: inherit;
+  height: inherit;
+  /* overflow-y: none; */
+  overflow-x: hidden;
+  overflow-y: hidden;
+  /* top: -50%; */
+  /* transform: translateY(-50%); */
+  /* overflow-x: scroll; */
+  /* overflow-y: scroll; */
   /* white-space: nowrap; */
 }
 
-td div div p {
+td > div > div > div > p {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
   display: block;
   text-align: center;
 }

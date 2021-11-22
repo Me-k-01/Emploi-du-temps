@@ -1,4 +1,4 @@
-td div div{ background: linear-gradient(45deg, rgba(17, 56, 70, 1) 0%, rgba(49, 161, 136, 1) 100%); }
+td > div > div{ background: linear-gradient(45deg, rgba(17, 56, 70, 1) 0%, rgba(49, 161, 136, 1) 100%); }
 .JJ { background: linear-gradient(45deg, rgba(149,62,10,1) 0%, rgba(196, 189, 52, 1) 100%);}
 .MM { background: linear-gradient(45deg, rgba(94,25,25,1) 0%, rgba(157, 52, 120, 1) 100%);}
 .EB { background: linear-gradient(45deg, rgba(31, 29, 82, 1) 0%, rgba(40, 104, 149, 1) 100%);}
