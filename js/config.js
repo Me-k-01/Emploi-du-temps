@@ -13,7 +13,7 @@ class Config {
   load() {
     const data = localStorage.getItem(name);
     if (! data) {
-      this.import(presets);
+      this.importConfig(presets);
     } else {
       this.include = data.include;
       this.exclude = data.exclude;
@@ -29,13 +29,23 @@ class Config {
       exclude: this.exclude
     };
   }
-  import({include, exclude}) {
+  importJSON(str) {
+    try {
+      const data = JSON.parse(str);
+      if (! data.include || ! data.exclude) {
+        // Err
+      }
+      importConfig(data);
+    } catch (err) {
+      // Err
+    }
+  }
+  importConfig({include, exclude}) {
     this.include = include;
     this.exclude = exclude;
   }
 
   contains({titre, groupe}) {
-    // console.log(titre, groupe);
     return (this.include[titre] === groupe || groupe === null) && ! this.exclude[titre];
   }
 
