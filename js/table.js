@@ -10,7 +10,7 @@ class Table{
       this.hours.push(`${h}h`);
       // this.hours.push(`${h}h30`);
     }
-    this.isReverse = true;
+    this.isReverse = false;
     this.var = {};
     if (this.isReverse){
       this.create(this.hours, this.days);
