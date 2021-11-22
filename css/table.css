@@ -69,8 +69,7 @@ td div div {
   height: var(--height);
   width: var(--width);
   overflow-x: scroll;
-  overflow-y: hidden;
-  /* overflow-y: auto; */
+  overflow-y: auto;
   white-space: nowrap;
 }
 

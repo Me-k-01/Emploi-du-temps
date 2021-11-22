@@ -4,6 +4,9 @@
   height: 10px;
   cursor: pointer;
 }
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0.20);
+}
 ::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   background: rgba(255, 255, 255, 0.21);
@@ -29,8 +32,8 @@
   transition: scrollbar-color 0.1s;
 }
 *:hover {
-  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.2);
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.2);
 }
 *:active {
-  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.2);
+  scrollbar-color: rgba(255, 255, 255, 0.4) rgba(0, 0, 0, 0.2);
 }
