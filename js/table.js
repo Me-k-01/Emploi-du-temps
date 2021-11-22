@@ -77,9 +77,11 @@ class Table{
   }
   adjustSize(div, {horaire, duree}) {
     // const size = getComputedStyle(div).getPropertyValue('--total-width');
-    console.log(div[this.var.getSize] * this.hourToAmount('00'+horaire.substring(2)));
-    div.style.transform = `translate${this.var.coord}(${div[this.var.getSize] * this.hourToAmount('00'+horaire.substring(2))}px)`;
-    div.style[this.var.size] = div[this.var.getSize] * this.hourToAmount(duree) + 'px';
+    // console.log(horaire, duree);
+    // console.log(div[this.var.getSize]);
+    const size = (div[this.var.getSize]+4);
+    div.style.transform = `translate${this.var.coord}(${size * this.hourToAmount('00'+horaire.substring(2))}px)`;
+    div.style[this.var.size] = (size) * this.hourToAmount(duree) + 'px';
   }
   getClass(salle) {
     const salleArray = salle.split(' ');
@@ -108,6 +110,7 @@ class Table{
       if (config.contains(mtr)) {
         const div = this.formatToDOM(mtr);
         this.set(this.makeId(mtr.jour, mtr.horaire), div);
+        // console.log(mtr.titre);
         this.adjustSize(div, mtr);
       }
     }

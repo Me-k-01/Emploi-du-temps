@@ -30,11 +30,12 @@ td div {
   position: absolute;
   height: var(--height);
   width: var(--width);
-  /* border: 1px solid var(--dark); */
+  /* border: 1px solid red; */
   /* outline: 4px solid var(--dark); */
   /* box-shadow: inset 20px 0 50px 10px rgba(0, 0, 255, .2); */
 
   /* z-index: 1; */
+  /* top: 0; */
   transform: translateY(calc(-1/2 * var(--height)));
 }
 .reverse td div {
@@ -65,15 +66,15 @@ td div div {
   /* z-index: 10; */
   /* top: -50%; */
   /* transform: translateY(-50%); */
-  height: var(--height);
-  width: var(--width);
   /* background: transparent; */
   /* z-index: 10; */
   /* max-height: var(--height);
   max-width: var(--width); */
   /* transform: translateX(50px); */
   /* max-width: var(--width); */
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
+  height: var(--height);
+  width: var(--width);
 }
 
 td div div p {
