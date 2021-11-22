@@ -80,7 +80,7 @@ class Table{
     // console.log(horaire, duree);
     // console.log(div[this.var.getSize]);
     const size = (div[this.var.getSize]+4);
-    div.style.transform = `translate${this.var.coord}(${size * this.hourToAmount('00'+horaire.substring(2))}px)`;
+    div.style.transform = `translate${this.var.coord}(${size * this.hourToAmount('00'+horaire.substring(2))-2}px)`;
     div.style[this.var.size] = (size) * this.hourToAmount(duree) + 'px';
   }
   getClass(salle) {
