@@ -10,7 +10,7 @@ class Table{
       this.hours.push(`${h}h`);
       // this.hours.push(`${h}h30`);
     }
-    this.isReverse = true;
+    this.isReverse = false;
     this.var = {};
     if (this.isReverse){
       this.create(this.hours, this.days);
@@ -66,9 +66,17 @@ class Table{
     room.classList.add('salle');
     room.innerHTML = matter.salle;
 
+    const closeBtn = doc.createElement('button');
+    closeBtn.classList.add('cross');
+    closeBtn.innerHTML = 'x';
+    closeBtn.addEventListener('click', () => {
+      console.log('close');
+    });
+
     const container = doc.createElement('div');
-    container.append(title, room);
+    container.append(title, room, closeBtn);
     container.classList.add(this.getClass(matter.salle));
+
     return container;
   }
   hourToAmount(dateStr) {

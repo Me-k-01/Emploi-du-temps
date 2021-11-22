@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/css/table.css">
     <link rel="stylesheet" type="text/css" href="/css/color.css">
     <link rel="stylesheet" type="text/css" href="/css/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="/css/user-input.css">
     <script src="/js/preset.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="/js/config.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="/js/table.js" type="text/javascript" charset="utf-8" defer></script>
