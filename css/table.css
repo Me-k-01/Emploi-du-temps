@@ -30,11 +30,10 @@ td div {
   position: absolute;
   height: var(--height);
   width: var(--width);pointer-events:none;
-  /* border: 1px solid red; */
+  /* border-bottom: 1px solid red; */
   /* outline: 4px solid var(--dark); */
   /* box-shadow: inset 20px 0 50px 10px rgba(0, 0, 255, .2); */
 
-  /* z-index: 1; */
   /* top: 0; */
   transform: translateY(calc(-1/2 * var(--height)));
 }
@@ -60,27 +59,26 @@ td div {
 }
 td div div {
   display: flex;
-  position: relative;
   flex-direction: column;
-  justify-content: center;pointer-events: all;
-  /* top: -50%; */
-  /* transform: translateY(-50%); */
-
+  position: relative;
+  pointer-events: all;
+  justify-content: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
   height: var(--height);
   width: var(--width);
-  overflow-x: none;
-  overflow-y: scroll;
   /* white-space: nowrap; */
 }
 .reverse td div div {
-  /* overflow-x: scroll;
-  overflow-y: none; */
-  /* white-space: nowrap; */
+  overflow-x: hidden ;
+  overflow-y: scroll;
 }
-
 td div div p {
   display: block;
   text-align: center;
+  /* width: 80%; */
+  /* height: 50%;
+  margin: auto; */
 }
 
 .title {font-weight: bold; font-size: 1em;}

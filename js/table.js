@@ -10,7 +10,7 @@ class Table{
       this.hours.push(`${h}h`);
       // this.hours.push(`${h}h30`);
     }
-    this.isReverse = false;
+    this.isReverse = true;
     this.var = {};
     if (this.isReverse){
       this.create(this.hours, this.days);
@@ -79,8 +79,8 @@ class Table{
     // const size = getComputedStyle(div).getPropertyValue('--total-width');
     // console.log(horaire, duree);
     // console.log(div[this.var.getSize]);
-    const size = (div[this.var.getSize]+4);
-    div.style.transform = `translate${this.var.coord}(${size * this.hourToAmount('00'+horaire.substring(2))-2}px)`;
+    const size = (div[this.var.getSize]+14); // scrollbar: 10px, border; 4px
+    div.style.transform = `translate${this.var.coord}(${size * this.hourToAmount('00'+horaire.substring(2))}px)`;
     div.style[this.var.size] = (size) * this.hourToAmount(duree) + 'px';
   }
   getClass(salle) {
