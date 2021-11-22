@@ -1,0 +1,36 @@
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.21);
+  background-clip: content-box;
+  border-radius: 20px;
+  transition: background 0.1s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:active {
+  background: inherit;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.20);
+}
+
+* {
+  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0);
+  transition: scrollbar-color 0.1s;
+}
+*:hover {
+  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.2);
+}
+*:active {
+  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.2);
+}

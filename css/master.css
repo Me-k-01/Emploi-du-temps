@@ -2,12 +2,19 @@
   color : #bfbfbf;
   font-family: "Helvetica Neue",Arial,sans-serif;
 }
+html, body, main {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background: #262626;
+}
+
 h1 {
   font-size: 1.5em;
   text-align: center;
 }
-
-body, main {
-  background: #262626;
-}
-html, body, main { height: 100%; width: 100%; margin: 0; }

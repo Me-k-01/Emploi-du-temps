@@ -63,33 +63,15 @@ td div div {
   position: relative;
   flex-direction: column;
   justify-content: center;pointer-events: all;
-  /* z-index: 10; */
   /* top: -50%; */
   /* transform: translateY(-50%); */
-  /* background: transparent; */
-  /* z-index: 10; */
-  /* max-height: var(--height);
-  max-width: var(--width); */
-  /* transform: translateX(50px); */
-  /* max-width: var(--width); */
+
   height: var(--height);
   width: var(--width);
   overflow-x: scroll;
   overflow-y: hidden;
+  /* overflow-y: auto; */
   white-space: nowrap;
-  /* padding: 5px; */
-}
-td div div::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-td div div::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: 20px;
-}
-
-td div div::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.20);
 }
 
 td div div p {
