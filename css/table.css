@@ -1,23 +1,26 @@
-table {
-  display: block; border-collapse: collapse;
+body {
   --height: 10vh; /* 80px */
   --width: 30vh; /* 200px */
   --border-width: 4px;
   --dark: rgb(25, 28, 27);
 }
+
+#schedule {
+  display: block; border-collapse: collapse;
+}
 .reverse {
   --height: 12vh; /* 150px */
   --width: 15vh; /* 100px */
 }
-td {
+#schedule td {
   height: var(--height); min-height: var(--height);
   width: var(--width); min-width: var(--width);
 }
-td {
+#schedule td {
   border: 4px solid var(--dark);
 }
-th { background-color: var(--dark);}
-td div {
+#schedule th { background-color: var(--dark);}
+#schedule td > div {
   pointer-events:none;
   display: flex;
   position: absolute;
@@ -47,7 +50,7 @@ td div {
 .reverse .left-header {
   transform: none;
 }
-td div div {
+table td > div > div {
   display: flex; flex-direction: column;
   position: relative;
   pointer-events: all;

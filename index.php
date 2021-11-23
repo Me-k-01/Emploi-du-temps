@@ -21,7 +21,7 @@
     </header>
     <main>
       <body>
-        <table id="schedule"></table>
+        <table id="schedule" class="schedule"></table>
       </body>
       <div id="ui" >
         <section>
