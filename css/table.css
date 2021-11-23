@@ -1,7 +1,5 @@
 table {
-  display: block;
-  border-collapse: collapse;
-
+  display: block; border-collapse: collapse;
   --height: 10vh; /* 80px */
   --width: 30vh; /* 200px */
   --border-width: 4px;
@@ -11,22 +9,19 @@ table {
   --height: 12vh; /* 150px */
   --width: 15vh; /* 100px */
 }
-tr, td {
-  height: var(--height);
-  min-height: var(--height);
-  width: var(--width);
-  min-width: var(--width);
+td {
+  height: var(--height); min-height: var(--height);
+  width: var(--width); min-width: var(--width);
 }
 td {
   border: 4px solid var(--dark);
 }
 th { background-color: var(--dark);}
-td > div {
+td div {
+  pointer-events:none;
   display: flex;
   position: absolute;
-  height: var(--height);
-  width: var(--width);
-  pointer-events:none;
+  height: var(--height); width: var(--width);
   /* border-bottom: 1px solid red; */
   /* outline: 4px solid var(--dark); */
   /* box-shadow: inset 20px 0 50px 10px rgba(0, 0, 255, .2); */
@@ -34,9 +29,7 @@ td > div {
   /* top: 0; */
   transform: translateY(calc(-1/2 * var(--height)));
 }
-.reverse td div {
-  flex-direction: column;
-}
+.reverse td div { flex-direction: column; }
 
 #header {
   height: 50px;
@@ -55,25 +48,26 @@ td > div {
   transform: none;
 }
 td div div {
-  display: flex;
-  flex-direction: column;
+  display: flex; flex-direction: column;
   position: relative;
   pointer-events: all;
   justify-content: center;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  height: inherit;
-  width: inherit;
-  /* white-space: nowrap; */
+
+  overflow-x: scroll; overflow-y: hidden;
+  height: inherit; width: inherit;
 }
 .reverse td div div {
-  overflow-x: hidden ;
-  overflow-y: scroll;
+  overflow-x: hidden; overflow-y: scroll;
 }
 td div div p {
+  margin: 0 5px;
   display: block;
   text-align: center;
 }
-
-.title {font-weight: bold; font-size: 1em;}
-.salle {font-size: 0.9em;}
+.title {
+  font-weight: bold;
+  font-size: 1em;
+}
+.salle {
+  font-size: 0.9em;
+}

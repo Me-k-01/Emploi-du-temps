@@ -23,24 +23,29 @@
       <body>
         <table id="schedule"></table>
       </body>
-      <div id="ui" class="hidden">
+      <div id="ui" >
         <section>
           <h2>Inclure</h2>
-            <ul>
-              <li><label>Titre</label><label>Groupe</label></li>
-            </ul>
-          <form>
-            <input id="include-titre" type="text" value="">
-            <input id="include-group" type="text" value="">
-          </form>
+            <table>
+              <tbody>
+                <tr>
+                  <td><input id="include-titre" type="text" value=""></td>
+                  <td><input id="include-group" type="text" value=""></td>
+                </tr>
+              </tbody>
+            </table>
         </section>
         <section>
           <h2>
             Exclure
           </h2>
-          <form>
-            <input type="text" name="" value="">
-          </form>
+          <table>
+            <tbody>
+              <tr>
+                <td><input id="exclude-titre" type="text" value=""></td>
+              </tr>
+            </tbody>
+          </table>
         </section>
       </div>
     </main>
