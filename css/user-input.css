@@ -1,9 +1,17 @@
+#ui {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(36, 36, 36, 1);
+}
+
 input {
   border: 2px solid transparent;
   border-radius: 20px;
   width: 20vw;
-  height: 1.4em;
-  line-height: 1.4em;
+  height: 1.5em;
+  line-height: 1.5em;
+  padding: 4px;
   background: rgba(0, 0, 0, 0.20);
   outline: none;
   transition: 0.2s;
