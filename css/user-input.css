@@ -1,3 +1,23 @@
+input {
+  border: 2px solid transparent;
+  border-radius: 20px;
+  width: 20vw;
+  height: 1.4em;
+  line-height: 1.4em;
+  background: rgba(0, 0, 0, 0.20);
+  outline: none;
+  transition: 0.2s;
+}
+
+input:hover {
+  background: rgba(0, 0, 0, 0.1);
+
+}
+
+input:active, input:focus {
+  border: 2px solid rgba(255, 255, 255, 0.20);
+}
+
 .cross {
   /* display: none; */
   position: absolute;
@@ -16,12 +36,13 @@
   margin-right: 2px;
   border-radius: 4px;
   background: rgba(0, 0, 0, 0.2);
+  outline: none;
 
   font-weight: bold;
   transition: 0.2s;
 }
 
-:hover > .cross, :focus > .cross {
+:hover > .cross, :focus > .cross, .cross:focus {
   top: 0;
   transition: 0.4s;
 }

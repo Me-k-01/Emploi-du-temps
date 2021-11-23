@@ -2,9 +2,8 @@ table * { margin: 0; padding: 0;}
 table {
   display: block;
   height: 100vh;
-  /* overflow-y: scroll; */
   border-collapse: collapse;
-  --height: 80px;
+  --height: 80px; /* 80px */
   --width: 200px;
   --border-width: 4px;
   --total-width: calc(var(--width) + var(--border-width) );

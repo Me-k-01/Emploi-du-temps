@@ -20,7 +20,27 @@
       <h1>Emploi du temps</h1>
     </header>
     <main>
-      <table id="schedule"></table>
+      <body>
+        <table id="schedule"></table>
+      </body>
+      <div id="ui">
+        <section>
+          <form id="include-input" action="#" method="post">
+            <label>
+              Inclure:
+              <input type="text" name="" value="">
+            </label>
+          </form>
+        </section>
+        <section>
+          <form id="exclude-input" action="#" method="post">
+            <label>
+              Exclure:
+              <input type="text" name="" value="">
+            </label>
+          </form>
+        </section>
+      </div>
     </main>
   </body>
 </html>
