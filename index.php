@@ -26,26 +26,18 @@
       <div id="ui" >
         <section>
           <h2>Inclure</h2>
-            <table>
-              <tbody>
-                <tr>
-                  <td><input id="include-titre" type="text" value=""></td>
-                  <td><input id="include-group" type="text" value=""></td>
-                </tr>
-              </tbody>
-            </table>
+          <ul>
+            <li><input class="include-title" type="text" value=""><input class="include-group" type="text" value=""></li>
+            <li><input class="include-title" type="text" value=""><input class="include-group" type="text" value=""></li>
+          </ul>
         </section>
         <section>
           <h2>
             Exclure
           </h2>
-          <table>
-            <tbody>
-              <tr>
-                <td><input id="exclude-titre" type="text" value=""></td>
-              </tr>
-            </tbody>
-          </table>
+          <ul>
+            <li><input class="exclude-title" type="text" value=""></li>
+          </ul>
         </section>
       </div>
     </main>

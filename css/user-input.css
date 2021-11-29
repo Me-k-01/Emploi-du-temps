@@ -2,32 +2,49 @@
   position: absolute;
   top: 0;
   right: 0;
-  background: rgba(36, 36, 36, 1);
+  background: rgba(36, 36, 36, 0.9);
+  height: 100%;
+  padding: 1%;
+  width: 20%;
+}
+
+ul {
+  width: inherit;
+}
+
+li {
+  width: inherit;
+  list-style: none;
+  display: flex;
 }
 
 input {
   border: 2px solid transparent;
-  border-radius: 20px;
-  width: 20vw;
+  border-radius: 5px;
+  flex-grow: 1;
   height: 1.5em;
   line-height: 1.5em;
-  padding: 4px;
-  background: rgba(0, 0, 0, 0.20);
+  margin: 3px;
+  text-indent: 5px;
+  background: rgba(0, 0, 0, 0.2);
   outline: none;
   transition: 0.2s;
 }
 
 input:hover {
   background: rgba(0, 0, 0, 0.1);
-
 }
 
 input:active, input:focus {
   border: 2px solid rgba(255, 255, 255, 0.20);
 }
 
+.include-group {
+  width: 20px;
+  flex-grow: 0;
+}
+
 .cross {
-  /* display: none; */
   position: absolute;
   cursor: pointer;
   top: calc(-1.5em - 5px);
