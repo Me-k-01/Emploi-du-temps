@@ -16,19 +16,19 @@
     <script src="/js/main.js" type="text/javascript" charset="utf-8" defer></script>
   </head>
   <body>
-    <header>
+    <!-- <header>
       <h1>Emploi du temps</h1>
-    </header>
+    </header> -->
     <main>
       <body>
-        <table id="schedule" class="schedule"></table>
+        <table id="schedule"></table>
       </body>
       <div id="ui" >
         <section>
           <h2>Inclure</h2>
           <ul>
-            <li><input class="include-title" type="text" value=""><input class="include-group" type="text" value=""></li>
-            <li><input class="include-title" type="text" value=""><input class="include-group" type="text" value=""></li>
+            <li><input class="include-title" type="text" value=""><input class="include-group" type="text" value=""><button class="del" type="button" name="button">del</button></li>
+            <li><input class="include-title" type="text" value=""><input class="include-group" type="text" value=""><button id="add" type="button" name="button">add</button></li>
           </ul>
         </section>
         <section>
