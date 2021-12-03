@@ -1,11 +1,9 @@
-#ui {
+#config {
   position: absolute;
-  top: 0;
-  right: 0;
-  background: rgba(36, 36, 36, 0.9);
-  height: 100%;
+  top: 0; right: 0;
+  height: 100%; width: 50%;
+  background: rgba(36, 36, 36);
   padding: 1%;
-  width: 20%;
 }
 
 ul {

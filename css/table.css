@@ -19,7 +19,9 @@ table td {
 table td {
   border: 4px solid var(--dark);
 }
-table th { background-color: var(--dark);}
+table th {
+  background-color: var(--dark);
+}
 table td > div {
   pointer-events:none;
   display: flex;
