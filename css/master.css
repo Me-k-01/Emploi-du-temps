@@ -3,6 +3,8 @@
   font-family: "Helvetica Neue",Arial,sans-serif;
   margin: 0;
   padding: 0;
+  --dark: rgb(25, 28, 27);
+  --grey: rgba(36, 36, 36);
 }
 body {
   height: 100%; width: 100%;
@@ -13,7 +15,7 @@ body {
 }
 
 body {
-  background: #262626;
+  background: var(--dark);
 }
 
 h1 {

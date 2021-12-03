@@ -1,9 +1,13 @@
 #config {
   position: absolute;
   top: 0; right: 0;
-  height: 100%; width: 50%;
+  height: 100%; width: 0px;
   background: rgba(36, 36, 36);
-  padding: 1%;
+  border-left: 5px solid var(--dark);
+  overflow: hidden;
+}
+#config.visible {
+  width: 50%;
 }
 
 ul {
@@ -27,7 +31,7 @@ input {
   line-height: 1.5em;
   margin: 0 3px;
   text-indent: 5px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(100, 100, 100, 0.2);
   outline: none;
   transition: 0.2s;
 }
