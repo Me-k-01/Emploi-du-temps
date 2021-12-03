@@ -24,15 +24,13 @@ li {
 }
 
 input {
-  border: 2px solid transparent;
+  border: 2px solid transparent; outline: none;
   border-radius: 5px;
+  height: 1.5em; line-height: 1.5em;
   flex-grow: 1;
-  height: 1.5em;
-  line-height: 1.5em;
   margin: 0 3px;
   text-indent: 5px;
   background: rgba(100, 100, 100, 0.2);
-  outline: none;
   transition: 0.2s;
 }
 
@@ -59,12 +57,25 @@ button {
   border-radius: 4px;
   outline: none;
   cursor: pointer;
-  margin: 0 5px;
+  margin: 5px;
   background: none;
 }
 button:hover, button:focus {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 1em 1em rgba(0, 0, 0, 0.1);
+}
+
+#toggle-config {
+  position: absolute;
+  top: 0; right: 0;
+  width: 2em; height: 2em;
+  font-size: 2em; line-height: 2em;
+  border-radius: 3em;
+  margin: 0;
+  transition: 0.5s;
+}
+#toggle-config:hover {
+  transform: rotate(90deg);
 }
 
 #add {
