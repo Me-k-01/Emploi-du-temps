@@ -8,14 +8,11 @@
 }
 body {
   height: 100%; width: 100%;
+  background: var(--dark);
 }
 
 .hidden {
   display: none;
-}
-
-body {
-  background: var(--dark);
 }
 
 h1 {

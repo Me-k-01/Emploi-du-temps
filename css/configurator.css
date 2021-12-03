@@ -48,17 +48,15 @@ input:active, input:focus {
 }
 
 button {
-  width: 1.5em;
-  height: 1.5em;
-  font-size: 1em;
-  line-height: 1.5em;
+  width: 1.5em; height: 1.5em;
+  font-size: 1em; line-height: 1.5em;
   text-align: center;
-  border: none;
+  outline: none; border: none;
   border-radius: 4px;
-  outline: none;
   cursor: pointer;
   margin: 5px;
   background: none;
+  transition: 0.15s;
 }
 button:hover, button:focus {
   background: rgba(255, 255, 255, 0.2);
@@ -70,18 +68,19 @@ button:hover, button:focus {
   top: 0; right: 0;
   width: 2em; height: 2em;
   font-size: 2em; line-height: 2em;
+  background: none;
+  box-shadow: none;
   border-radius: 3em;
-  margin: 0;
-  transition: 0.5s;
 }
-#toggle-config:hover {
-  transform: rotate(90deg);
+#toggle-config i {
+  transition: 0.5s ease-out;
 }
-
-#add {
-
+#toggle-config:hover > i {
+  transform: rotate(180deg);
 }
-
+#toggle-config:active {
+  transform: scale(0.7);
+}
 
 .cross {
   position: absolute;
