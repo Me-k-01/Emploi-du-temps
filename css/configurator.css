@@ -1,10 +1,11 @@
 #config {
-  position: absolute;
+  position: absolute; overflow: hidden;
   top: 0; right: 0;
   height: 100%; width: 0px;
+
   background: rgba(36, 36, 36);
   border-left: 5px solid var(--dark);
-  overflow: hidden;
+  transition: 0.4s;
 }
 #config.visible {
   width: 50%;
@@ -20,7 +21,6 @@ li {
   list-style: none;
   display: flex;
   margin: 5px 0;
-
 }
 
 input {

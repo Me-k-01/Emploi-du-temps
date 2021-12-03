@@ -18,9 +18,10 @@
     <script src="/php/data.php" type="text/javascript" charset="utf-8" defer></script>
     <script src="/js/main.js" type="text/javascript" charset="utf-8" defer></script>
   </head>
-  <body>  
+  <body>
     <main>
       <body>
+        <button id="toggle-config" type="button" name="button"><i class="fas fa-cog"></i></button>
         <table id="schedule"></table>
       </body>
       <div id="config" >
