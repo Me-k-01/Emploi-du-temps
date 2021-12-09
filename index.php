@@ -26,6 +26,19 @@
       </body>
       <div id="config" >
         <section>
+          <h2>Filière</h2>
+          <form class="filiere" action="#">
+            <div>
+              <input type="checkbox" id="l3info" value="l3info"/>
+              <label for="l3info">L3 Info</label>
+            </div>
+            <div>
+              <input type="checkbox" id="l3math" value="l3math"/>
+              <label for="l3math">L3 Math</label>
+            </div>
+          </form>
+        </section>
+        <section>
           <h2>Inclure</h2>
           <ul>
             <li>

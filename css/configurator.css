@@ -1,3 +1,4 @@
+/****************** Main configuration window ******************/
 #config {
   position: fixed; overflow: hidden;
   top: 0; right: -40%;
@@ -11,17 +12,17 @@
   right: 0;
 }
 #config section {
-  margin: 50px;
+  margin: 5%;
 }
 #config h2 {
   text-align: center;
+  margin: 3%;
 }
 
 ul {
   width: inherit;
   margin-bottom: 40px;
 }
-
 li {
   width: inherit;
   list-style: none;
@@ -29,6 +30,7 @@ li {
   margin: 5px 0;
 }
 
+/****************** Entry ******************/
 input {
   border: 2px solid transparent; outline: none;
   border-radius: 5px;
@@ -39,20 +41,18 @@ input {
   background: rgba(100, 100, 100, 0.2);
   transition: 0.2s;
 }
-
 input:hover {
   background: rgba(255, 255, 255, 0.1);
 }
-
 input:active, input:focus {
   border: 2px solid rgba(255, 255, 255, 0.20);
 }
-
 .include-group {
   width: 20px;
   flex-grow: 0;
 }
 
+/****************** Bouton ******************/
 button {
   width: 1.5em; height: 1.5em;
   font-size: 1em; line-height: 1.5em;
@@ -69,6 +69,7 @@ button:hover, button:focus {
   box-shadow: 0 0 1em 1em rgba(0, 0, 0, 0.1);
 }
 
+/****************** Bouton toggle config ******************/
 #toggle-config {
   z-index: 2;
   position: fixed;
@@ -90,6 +91,7 @@ button:hover, button:focus {
   transition: 0.1s;
 }
 
+/****************** Delete button ******************/
 .cross {
   position: absolute;
   top: calc(-1.5em - 5px);
@@ -101,8 +103,35 @@ button:hover, button:focus {
   font-weight: bold;
   transition: 0.2s;
 }
-
 :hover > .cross, :focus > .cross, .cross:focus {
   top: 0;
   transition: 0.4s;
+}
+
+/****************** Filière container ******************/
+.filiere {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.filiere > div {
+  margin: 5px;
+}
+/****************** Checkbox ******************/
+input[type="checkbox"] { opacity: 0; position: absolute; }
+label {
+  display: block; position: relative;
+  background-color: var(--grey);
+  border: 5px solid var(--dark);
+  border-radius: 50px;
+  padding: 5px;
+  text-align: center;
+  width: 100px;
+  /* white-space: nowrap; */
+  cursor: pointer; user-select: none;
+  transition: .2s;
+}
+:checked + label {
+  background-color: rgb(50, 43, 213);
+  border: 5px solid rgb(26, 22, 125);
 }
