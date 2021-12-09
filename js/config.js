@@ -2,6 +2,7 @@ class Config {
   constructor(name) {
     this.include = name;
     this.load();
+    this.filieres = document.getElementById('filiere').elements;
   }
   addInclusion(title, group) {
     this.include[title] = group;
@@ -49,4 +50,11 @@ class Config {
     return (this.include[titre] === groupe || groupe === null) && ! this.exclude[titre];
   }
 
+  update() {
+    for (const input in this.filieres) {
+      if (this.filieres[input].checked) {
+        console.log(this.filieres[input].value);
+      }
+    }
+  }
 }

@@ -27,7 +27,7 @@
       <div id="config" >
         <section>
           <h2>Filière</h2>
-          <form class="filiere" action="#">
+          <form id="filiere" action="#">
             <div>
               <input type="checkbox" id="l3info" value="l3info"/>
               <label for="l3info">L3 Info</label>

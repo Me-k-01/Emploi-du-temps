@@ -4,7 +4,6 @@ table.fill(matters);
 window.addEventListener('resize', () => table.update());
 
 document.getElementById('toggle-config').addEventListener('click', () => {
-
   const conf = document.getElementById('config');
   conf.className = conf.className === 'visible' ? '': 'visible';
 });
