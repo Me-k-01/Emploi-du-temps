@@ -49,12 +49,10 @@ table td > div {
   transform: none;
 }
 table td > div > div {
-  display: flex; flex-direction: column;
-  position: relative;
+  position: relative; display: flex; flex-direction: column;
+  overflow-x: scroll; overflow-y: hidden;
   pointer-events: all;
   justify-content: center;
-
-  overflow-x: scroll; overflow-y: hidden;
   height: inherit; width: inherit;
 }
 .reverse td div div {
