@@ -1,6 +1,6 @@
 const config = new Config();
 const table = new Table(document.getElementById('schedule'), config);
-requestData(config.filieres, (res) => {
+requestData(config.filieres, res => {
   table.matters = res;
   table.fill();
 })
@@ -11,7 +11,3 @@ document.getElementById('toggle-config').addEventListener('click', () => {
   const conf = document.getElementById('config');
   conf.className = conf.className === 'visible' ? '': 'visible';
 });
-
-
-
-// config.update()
