@@ -1,7 +1,9 @@
 <?php
+  header("Content-Type: application/json");
   //////////// Test parameters ////////////
-  if (! isset($_POST['uid'])) {
-    die('POST parameter undefined: query');
+  if (! isset($_POST['query'])) {
+    http_response_code(405);
+    die ('POST parameter undefined: query');
   }
 
   //////////// Connect to database ////////////
@@ -9,15 +11,18 @@
   try { // Create connection
     $conn = new PDO("mysql:host=$servername;dbname=$databasename", $username, $password);
   } catch (Exeption $err) {
-    die("Connection failed: " . $err->getMessage());
+    http_response_code(405);
+    die ("Connection failed: " . $err->getMessage());
   }
 
   //////////// Query select ////////////
-  // $sql = "SELECT * FROM Schedule ORDER BY horaire WHERE filiere IN (" . mysql_real_escape_string() . ")";  // WHERE Schedule.filiere="21L3-INF"
-  // $results = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-  //////////// Convert to JSON ////////////
-  // header("Content-Type: application/json");
-  header("Content-Type: application/text");
-  // echo json_encode($results);
-  echo $_POST['query'];
+  $arr = json_decode($_POST['query']);
+  $placeholder  = str_repeat('?,', count($arr) - 1) . '?';
+  $sql = "SELECT * FROM Schedule WHERE filiere IN ($placeholder) ORDER BY horaire";
+
+  $stm = $conn->prepare($sql);
+  $stm->execute($arr);
+  $res = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+  echo json_encode($res);
 ?>
