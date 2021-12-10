@@ -1,4 +1,4 @@
-const doc = document;
+
 
 class Table{
   constructor(table, config) {
@@ -54,7 +54,7 @@ class Table{
   clear() {
     for (const d of this.days) {
       for (const h of this.hours) {
-        doc.getElementById(this.makeId(d, h)).innerHTML = '';
+        document.getElementById(this.makeId(d, h)).innerHTML = '';
       }
     }
   }
@@ -65,15 +65,15 @@ class Table{
   }
 
   formatToDOM({titre, salle}) { // Matter to DOM element
-    const title = doc.createElement('p');
+    const title = document.createElement('p');
     title.innerHTML = titre;
     title.classList.add('title');
 
-    const room = doc.createElement('p');
+    const room = document.createElement('p');
     room.classList.add('salle');
     room.innerHTML = salle;
 
-    const closeBtn = doc.createElement('button');
+    const closeBtn = document.createElement('button');
     closeBtn.classList.add('cross');
     closeBtn.innerHTML = 'x';
     closeBtn.addEventListener('click', () => {
@@ -81,7 +81,7 @@ class Table{
       this.update();
     });
 
-    const container = doc.createElement('div');
+    const container = document.createElement('div');
     container.append(title, room, closeBtn);
     container.classList.add(this.getClass(salle));
 
@@ -117,7 +117,7 @@ class Table{
   }
 
   set(id, div) {
-    doc.getElementById(id).appendChild(div);
+    document.getElementById(id).appendChild(div);
   }
 
   fill(matters) {

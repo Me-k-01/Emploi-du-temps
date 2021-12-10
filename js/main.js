@@ -1,6 +1,6 @@
 const config = new Config('21L3-INF');
 const table = new Table(document.getElementById('schedule'), config);
-table.fill(matters);
+table.fill([]);
 
 window.addEventListener('resize', () => table.update());
 
