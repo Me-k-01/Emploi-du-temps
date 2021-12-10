@@ -2,7 +2,7 @@ class Config {
   constructor(name) {
     this.include = name;
     this.load();
-    this.filieres = document.getElementById('filiere').elements;
+    this.filieres = document.querySelectorAll('#filiere input[type="checkbox"]');
   }
   addInclusion(title, group) {
     this.include[title] = group;
@@ -51,9 +51,9 @@ class Config {
   }
 
   update() {
-    for (const input in this.filieres) {
-      if (this.filieres[input].checked) {
-        console.log(this.filieres[input].value);
+    for (const input of this.filieres) {
+      if (input.checked) {
+        console.log(input.value);
       }
     }
   }

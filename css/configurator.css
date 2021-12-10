@@ -104,7 +104,7 @@ button:hover, button:focus {
 }
 
 /****************** Checkbox container ******************/
-.filiere {
+#filiere {
   display: flex;
   justify-content: center;
   align-items: center;
