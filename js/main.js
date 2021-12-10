@@ -1,6 +1,6 @@
-const config = new Config('21L3-INF');
+const config = new Config();
 const table = new Table(document.getElementById('schedule'), config);
-table.fill([]);
+requestData(config.filieres, (res) => {table.fill(res)})
 
 window.addEventListener('resize', () => table.update());
 
@@ -11,4 +11,4 @@ document.getElementById('toggle-config').addEventListener('click', () => {
 
 
 
-config.update()
+// config.update()

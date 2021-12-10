@@ -1,8 +1,9 @@
 class Config {
-  constructor(name) {
-    this.include = name;
+  constructor() {
+    this.include = {};
     this.load();
-    this.filieres = document.querySelectorAll('#filiere input[type="checkbox"]');
+    this.filieres = ['21L3-INF'];
+    this.filieresInput = document.querySelectorAll('#filiere input[type="checkbox"]');
   }
   addInclusion(title, group) {
     this.include[title] = group;
@@ -26,6 +27,7 @@ class Config {
 
   export() {
     return {
+      filieres: this.filieres,
       include: this.include,
       exclude: this.exclude
     };
@@ -33,17 +35,18 @@ class Config {
   importJSON(str) {
     try {
       const data = JSON.parse(str);
-      if (! data.include || ! data.exclude) {
-        // Err
+      if (! data.include || ! data.exclude || ! data.filieres) {
+        console.error('Configuration invalide');
       }
       importConfig(data);
     } catch (err) {
-      // Err
+      console.error('Configuration invalide');
     }
   }
-  importConfig({include, exclude}) {
+  importConfig({include, exclude, filieres}) {
     this.include = include;
     this.exclude = exclude;
+    this.filieres = filieres;
   }
 
   contains({titre, groupe}) {

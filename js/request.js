@@ -5,7 +5,7 @@ function requestData(array, fun) {
     if (xhr.status !== 200) { // An error occured
       console.error(xhr.responseText); return;
     }
-    console.log(xhr.responseText);
+    fun(JSON.parse(xhr.responseText));
   };
   xhr.open("POST", "php/data.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
