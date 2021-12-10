@@ -4,6 +4,7 @@ class Table{
   constructor(table, config) {
     this.table = table;
     this.config = config;
+    this.matters = [];
 
     this.days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
     this.hours = [];
@@ -61,7 +62,7 @@ class Table{
 
   update() {
     this.clear();
-    this.fill(matters);
+    this.fill();
   }
 
   formatToDOM({titre, salle}) { // Matter to DOM element
@@ -120,8 +121,8 @@ class Table{
     document.getElementById(id).appendChild(div);
   }
 
-  fill(matters) {
-    for (const mtr of matters) {
+  fill() {
+    for (const mtr of this.matters) {
       // filtrage par nom de groupe suivant la configuration
       if (this.config.contains(mtr)) {
         const div = this.formatToDOM(mtr);

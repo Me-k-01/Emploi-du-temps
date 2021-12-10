@@ -1,6 +1,9 @@
 const config = new Config();
 const table = new Table(document.getElementById('schedule'), config);
-requestData(config.filieres, (res) => {table.fill(res)})
+requestData(config.filieres, (res) => {
+  table.matters = res;
+  table.fill();
+})
 
 window.addEventListener('resize', () => table.update());
 
