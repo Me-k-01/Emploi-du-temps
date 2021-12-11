@@ -2,9 +2,12 @@ class Config {
   constructor() {
     this.name = "config";
     this.load();
-    //this.filieresInput = document.querySelectorAll('#filiere input[type="checkbox"]');
+    ///////////// Include Input /////////////
+    this.includeList = document.getElementById("include");
+    this.excludeList = document.getElementById("exclude");
+    this.addInclude = document.getElementById("add-include");
+    this.addExclude = document.getElementById("add-exclude");
     this.setUpDOM();
-
   }
 
   makeInput(title, group) {
@@ -18,6 +21,13 @@ class Config {
       const inputGroup = document.createElement('input');
       inputGroup.setAttribute("type", "text");
       inputGroup.value = group;
+      const self = this;
+      // Only one letter can be entered for the group input
+      inputGroup.addEventListener('input', function (ev) {
+        this.value = ev.data;
+        self.include[title] = this.value;
+        table.update();
+      });
       li.appendChild(inputGroup);
     }
 
@@ -45,12 +55,12 @@ class Config {
   }
 
   setUpDOM() {
-    ///////////// Include Input /////////////
-    this.includeList = document.getElementById("include");
-    this.excludeList = document.getElementById("exclude");
-    this.addInclude = document.getElementById("add-include");
-    this.addExclude = document.getElementById("add-exclude");
-
+    const self = this;
+    document.querySelector('#add-include input:nth-child(2)').addEventListener('input', function (ev) {
+      this.value = ev.data;
+      self.include[title] = this.value;
+      table.update();
+    });
     ///////////// Iterate over saved config /////////////
     for (const filiere of this.filieres) {
       document.getElementById(filiere).checked = true;
