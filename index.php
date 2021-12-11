@@ -41,7 +41,7 @@
         <section>
           <h2>Inclure groupe</h2>
           <ul id="include">
-            <li>
+            <li id="add-include">
               <input type="text" value="">
               <input type="text" value="">
               <button class="add" type="button" name="button">
@@ -53,7 +53,7 @@
         <section>
           <h2>Exclure</h2>
           <ul id="exclude">
-            <li>
+            <li id="add-exclude">
               <input class="exclude-title" type="text" value="">
               <button class="add" type="button" name="button">
                 <i class="fas fa-plus"></i>
