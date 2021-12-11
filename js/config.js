@@ -17,6 +17,15 @@ class Config {
     inputTitle.setAttribute('type', 'text');
     inputTitle.value = title;
     li.appendChild(inputTitle);
+
+
+
+    const addBtn = document.createElement('button');
+    const addIcon = document.createElement('i');
+    addIcon.className = 'fas fa-trash';
+    addBtn.appendChild(addIcon);
+
+
     if (group) {
       const inputGroup = document.createElement('input');
       inputGroup.setAttribute('type', 'text');
@@ -28,19 +37,19 @@ class Config {
         table.update(); // Update table
       });
       li.appendChild(inputGroup);
+      addBtn.addEventListener('click', ev => {
+        delete this.include[title];
+        table.update();
+        li.remove();
+      });
+    } else {
+      addBtn.addEventListener('click', ev => {
+        delete this.exclude[title];
+        table.update();
+        li.remove();
+      });
     }
-
-    const addBtn = document.createElement('button');
-    const addIcon = document.createElement('i');
-    addIcon.className = 'fas fa-trash';
-    addBtn.appendChild(addIcon);
-    addBtn.addEventListener('click', ev => {
-      li.remove();
-      delete this.include[title];
-      table.update();
-    })
     li.appendChild(addBtn);
-
     return li;
   }
 
