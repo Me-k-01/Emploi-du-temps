@@ -13,22 +13,30 @@ class Config {
     this.exclude[title] = true;
   }
 
-  setUpDOM() {
-    ///////////// Include Input /////////////
-    this.includeDOM = document.createElement('li');
+  makeInput(title, group) {
+    const li = document.createElement('li');
 
     const inputTitle = document.createElement('input');
-    this.includeDOM.appendChild(inputTitle);
-
-    const inputGroup = document.createElement('input');
-    this.includeDOM.appendChild(inputGroup);
+    inputTitle.value = title;
+    li.appendChild(inputTitle);
+    if (group) {
+      const inputGroup = document.createElement('input');
+      inputGroup.value = group;
+      li.appendChild(inputGroup);
+    }
 
     const addBtn = document.createElement('button');
     addBtn.className = "del";
     const addIcon = document.createElement('i');
     addIcon.className = "fas fa-trash";
     addBtn.appendChild(addIcon)
-    this.includeDOM.appendChild(addBtn);
+    li.appendChild(addBtn);
+
+    return li;
+  }
+
+  setUpDOM() {
+    ///////////// Include Input /////////////
 
 
     ///////////// Iterate over saved config /////////////
@@ -38,12 +46,14 @@ class Config {
 
 
     this.includeList = document.getElementById("include");
-    for (const [include, group] in Object.entries(this.include)) {
-      this.includeList.appendChild(this.includeDOM);
+    for (const title in this.include) {
+      const li = this.makeInput(title, this.include[title]);
+      this.includeList.appendChild(li);
     }
     this.excludeList = document.getElementById("exclude");
-    for (const exclude in this.exclude) {
-
+    for (const title in this.exclude) {
+      const li = this.makeInput(title);
+      this.excludeList.appendChild(li);
     }
   }
 

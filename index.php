@@ -59,7 +59,7 @@
         </section>
         <section>
           <h2>Exclure</h2>
-          <ul id="exlude">
+          <ul id="exclude">
             <li>
               <input class="exclude-title" type="text" value="">
               <button class="del" type="button" name="button">

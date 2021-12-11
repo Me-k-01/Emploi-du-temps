@@ -1,7 +1,6 @@
 const presets = {
   filieres: ['21L3-INF'],
   include: {
-    "Technologies du web 3": null,
     "Anglais": "1",
     "Bases de données 3": "A",
     "Graphes": "A",
@@ -10,6 +9,6 @@ const presets = {
     "Techniques de recherche de stage et d'emploi": "6"
   },
   exclude: {
-
+    "UEO PPP3": true
   }
 }
