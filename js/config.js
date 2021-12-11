@@ -1,12 +1,12 @@
 class Config {
   constructor() {
-    this.name = "config";
+    this.name = 'config';
     this.load();
     ///////////// Include Input /////////////
-    this.includeList = document.getElementById("include");
-    this.excludeList = document.getElementById("exclude");
-    this.addInclude = document.getElementById("add-include");
-    this.addExclude = document.getElementById("add-exclude");
+    this.includeList = document.getElementById('include');
+    this.excludeList = document.getElementById('exclude');
+    this.addInclude = document.getElementById('add-include');
+    this.addExclude = document.getElementById('add-exclude');
     this.setUpDOM();
   }
 
@@ -14,12 +14,12 @@ class Config {
     const li = document.createElement('li');
 
     const inputTitle = document.createElement('input');
-    inputTitle.setAttribute("type", "text");
+    inputTitle.setAttribute('type', 'text');
     inputTitle.value = title;
     li.appendChild(inputTitle);
     if (group) {
       const inputGroup = document.createElement('input');
-      inputGroup.setAttribute("type", "text");
+      inputGroup.setAttribute('type', 'text');
       inputGroup.value = group;
       const self = this;
       // Only one letter can be entered for the group input
@@ -45,13 +45,34 @@ class Config {
     return li;
   }
 
-  addInclusion(title, group) {
-    this.include[title] = group;
-    this.includeList.insertBefore(this.makeInput(title, this.include[title]), this.addInclude);
+  addInclusion(titleInput, groupInput) {
+    const [title, group] = [titleInput.value, groupInput.value];
+    // If the title and group is valid
+    if (title && group) {
+      this.include[title] = group;
+      this.includeList.insertBefore(
+        this.makeInput(title, this.include[title]),
+        this.addInclude
+      );
+      titleInput.value = '';
+      groupInput.value = '';
+      table.update();
+      return;
+    }
   }
-  addExclusion(title) {
-    this.exclude[title] = true;
-    this.excludeList.insertBefore(this.makeInput(title), this.addExclude);
+  addExclusion(titleInput) {
+    const title = titleInput.value;
+    // If the title is valid
+    if (title) {
+      this.exclude[title] = true;
+      this.excludeList.insertBefore(
+        this.makeInput(title),
+        this.addExclude
+      );
+      titleInput.value = '';
+      table.update();
+      return;
+    }
   }
 
   setUpDOM() {

@@ -15,16 +15,9 @@ document.getElementById('toggle-config').addEventListener('click', () => {
 
 document.getElementById('add-include-btn').addEventListener('click', function (ev) {
   const [titleInput, groupInput] = this.parentNode.getElementsByTagName('input');
-  if (titleInput.value && groupInput.value) {
-    config.addInclusion(titleInput.value, groupInput.value);
-    titleInput.value = "";
-    groupInput.value = "";
-  }
+  config.addInclusion(titleInput, groupInput);
 });
 document.getElementById('add-exclude-btn').addEventListener('click', function (ev) {
   const titleInput = this.parentNode.getElementsByTagName('input')[0];
-  if (titleInput.value) {
-    config.addExclusion(titleInput.value);
-    titleInput.value = "";
-  }
+  config.addExclusion(titleInput);
 });

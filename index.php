@@ -42,8 +42,8 @@
           <h2>Inclure groupe</h2>
           <ul id="include">
             <li id="add-include">
-              <input type="text" value=""/>
-              <input type="text" value=""/>
+              <input type="text" value="" required/>
+              <input type="text" value="" required/>
               <button id="add-include-btn" class="add" type="button" name="button">
                 <i class="fas fa-plus"></i>
               </button>
@@ -54,7 +54,7 @@
           <h2>Exclure</h2>
           <ul id="exclude">
             <li id="add-exclude">
-              <input class="exclude-title" type="text" value=""/>
+              <input class="exclude-title" type="text" value="" required/>
               <button id="add-exclude-btn" class="add" type="button" name="button">
                 <i class="fas fa-plus"></i>
               </button>
