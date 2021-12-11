@@ -44,13 +44,6 @@
             <li>
               <input type="text" value="">
               <input type="text" value="">
-              <button class="del" type="button" name="button">
-                <i class="fas fa-trash"></i>
-              </button>
-            </li>
-            <li>
-              <input type="text" value="">
-              <input type="text" value="">
               <button id="add" type="button" name="button">
                 <i class="fas fa-plus"></i>
               </button>

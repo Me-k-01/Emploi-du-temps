@@ -17,19 +17,23 @@ class Config {
     const li = document.createElement('li');
 
     const inputTitle = document.createElement('input');
+    inputTitle.setAttribute("type", "text");
     inputTitle.value = title;
     li.appendChild(inputTitle);
     if (group) {
       const inputGroup = document.createElement('input');
+      inputGroup.setAttribute("type", "text");
       inputGroup.value = group;
       li.appendChild(inputGroup);
     }
 
     const addBtn = document.createElement('button');
-    addBtn.className = "del";
     const addIcon = document.createElement('i');
-    addIcon.className = "fas fa-trash";
-    addBtn.appendChild(addIcon)
+    addIcon.className = 'fas fa-trash';
+    addBtn.appendChild(addIcon);
+    addBtn.addEventListener('click', ev => {
+      li.remove();
+    })
     li.appendChild(addBtn);
 
     return li;
