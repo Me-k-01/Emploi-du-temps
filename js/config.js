@@ -23,7 +23,7 @@ class Config {
       inputGroup.value = group;
       const self = this;
       inputGroup.addEventListener('input', function (ev) {
-        this.value = ev.data; // A group is only one character
+        this.value = ev.data.toUpperCase(); // A group is only one character
         self.include[title] = this.value; // Update config
         table.update(); // Update table
       });
@@ -83,7 +83,8 @@ class Config {
   setUpDOM() {
     const self = this;
     document.querySelector('#add-include input:nth-child(2)').addEventListener('input', function (ev) {
-      this.value = ev.data; // A group is only one character
+      this.value = ev.data.toUpperCase(); // A group is only one character
+      const title = this.parentNode.firstChild().value;
       self.include[title] = this.value; // Update config
       table.update(); // Update table
     });
