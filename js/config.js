@@ -18,21 +18,20 @@ class Config {
     this.includeDOM = document.createElement('li');
 
     const inputTitle = document.createElement('input');
-    inputTitle.className = "include-title";
     this.includeDOM.appendChild(inputTitle);
 
     const inputGroup = document.createElement('input');
-    inputGroup.className = "include-group";
     this.includeDOM.appendChild(inputGroup);
 
     const addBtn = document.createElement('button');
-    addBtn.id = "add";
+    addBtn.className = "del";
     const addIcon = document.createElement('i');
-    addIcon.className = "fas fa-plus";
+    addIcon.className = "fas fa-trash";
     addBtn.appendChild(addIcon)
     this.includeDOM.appendChild(addBtn);
 
 
+    ///////////// Iterate over saved config /////////////
     for (const filiere of this.filieres) {
       document.getElementById(filiere).checked = true;
     }

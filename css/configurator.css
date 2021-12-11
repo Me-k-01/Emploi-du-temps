@@ -60,7 +60,6 @@ button {
   outline: none; border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin: 5px;
   background: none;
   transition: 0.15s;
 }
@@ -93,7 +92,7 @@ button:hover, button:focus {
 .cross {
   position: fixed;
   right: 0; top: calc(-1.5em - 5px); /* -1.5em */
-  margin-top: 5px;
+  margin: 5px;
   background: rgba(0, 0, 0, 0.2);
   font-weight: bold;
   transition: 0.2s;
