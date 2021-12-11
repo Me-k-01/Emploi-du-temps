@@ -1,5 +1,6 @@
 const config = new Config();
 const table = new Table(document.getElementById('schedule'), config);
+
 requestData(config.filieres, res => {
   table.matters = res;
   table.fill();

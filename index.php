@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/css/configurator.css">
     <!-- Scripts -->
     <script src="https://kit.fontawesome.com/da84674338.js" crossorigin="anonymous" async></script>
-    <script src="/js/request.js" type="text/javascript" charset="utf-8" async></script>
+    <script src="/js/request.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="/js/table.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="/js/preset.js" type="text/javascript" charset="utf-8" defer></script>
     <script src="/js/config.js" type="text/javascript" charset="utf-8" defer></script>

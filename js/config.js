@@ -1,8 +1,7 @@
 class Config {
   constructor() {
-    this.include = {};
+    this.name = "config";
     this.load();
-    this.filieres = ['21L3-INF'];
     this.filieresInput = document.querySelectorAll('#filiere input[type="checkbox"]');
   }
   addInclusion(title, group) {
@@ -13,7 +12,7 @@ class Config {
   }
 
   load() {
-    const data = localStorage.getItem(name);
+    const data = localStorage.getItem(this.name);
     if (! data) {
       this.importConfig(presets);
     } else {
@@ -22,7 +21,7 @@ class Config {
     }
   }
   save() {
-    localStorage.setItem(this.name, JSON.stringify(this.map))
+    localStorage.setItem(this.name, JSON.stringify(this.export()))
   };
 
   export() {
@@ -37,6 +36,7 @@ class Config {
       const data = JSON.parse(str);
       if (! data.include || ! data.exclude || ! data.filieres) {
         console.error('Configuration invalide');
+        return;
       }
       importConfig(data);
     } catch (err) {
