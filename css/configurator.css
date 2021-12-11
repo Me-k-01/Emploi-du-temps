@@ -47,7 +47,7 @@ input:hover {
 input:active, input:focus {
   border: 2px solid rgba(255, 255, 255, 0.20);
 }
-.include-group {
+input + input {
   width: 20px;
   flex-grow: 0;
 }

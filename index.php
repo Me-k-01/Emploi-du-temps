@@ -39,18 +39,18 @@
           </form>
         </section>
         <section>
-          <h2>Inclure</h2>
-          <ul>
+          <h2>Inclure groupe</h2>
+          <ul id="include">
             <li>
-              <input class="include-title" type="text" value="">
-              <input class="include-group" type="text" value="">
+              <input type="text" value="">
+              <input type="text" value="">
               <button class="del" type="button" name="button">
                 <i class="fas fa-trash"></i>
               </button>
             </li>
             <li>
-              <input class="include-title" type="text" value="">
-              <input class="include-group" type="text" value="">
+              <input type="text" value="">
+              <input type="text" value="">
               <button id="add" type="button" name="button">
                 <i class="fas fa-plus"></i>
               </button>
@@ -59,7 +59,7 @@
         </section>
         <section>
           <h2>Exclure</h2>
-          <ul>
+          <ul id="exlude">
             <li>
               <input class="exclude-title" type="text" value="">
               <button class="del" type="button" name="button">
