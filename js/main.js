@@ -14,10 +14,17 @@ document.getElementById('toggle-config').addEventListener('click', () => {
 });
 
 document.getElementById('add-include-btn').addEventListener('click', function (ev) {
-  const inputs = this.parentNode.getElementsByTagName('input');
-  console.log(inputs[0].value, inputs[1].value);
+  const [titleInput, groupInput] = this.parentNode.getElementsByTagName('input');
+  if (titleInput.value && groupInput.value) {
+    config.addInclusion(titleInput.value, groupInput.value);
+    titleInput.value = "";
+    groupInput.value = "";
+  }
 });
 document.getElementById('add-exclude-btn').addEventListener('click', function (ev) {
-  const inputs = this.parentNode.getElementsByTagName('exclude');
-  console.log(inputs[0].value);
+  const titleInput = this.parentNode.getElementsByTagName('input')[0];
+  if (titleInput.value) {
+    config.addExclusion(titleInput.value);
+    titleInput.value = "";
+  }
 });
