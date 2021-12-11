@@ -29,12 +29,12 @@
           <h2>Filière</h2>
           <form id="filiere" action="#">
             <div>
-              <input type="checkbox" id="l3info" value="l3info"/>
-              <label for="l3info">L3 Info</label>
+              <input type="checkbox" id="21L3-INF" value="21L3-INF"/>
+              <label for="21L3-INF">L3 Info</label>
             </div>
             <div>
-              <input type="checkbox" id="l3math" value="l3math"/>
-              <label for="l3math">L3 Math</label>
+              <input type="checkbox" id="21L3-MAT" value="21L3-MAT"/>
+              <label for="21L3-MAT">L3 Math</label>
             </div>
           </form>
         </section>

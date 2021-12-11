@@ -2,13 +2,20 @@ class Config {
   constructor() {
     this.name = "config";
     this.load();
-    this.filieresInput = document.querySelectorAll('#filiere input[type="checkbox"]');
+    //this.filieresInput = document.querySelectorAll('#filiere input[type="checkbox"]');
+    this.setUpDOM();
   }
   addInclusion(title, group) {
     this.include[title] = group;
   }
   addExclusion(title) {
     this.exclude[title] = true;
+  }
+
+  setUpDOM() {
+    for (const filiere of this.filieres) {
+      document.getElementById(filiere).checked = true;
+    }
   }
 
   load() {
@@ -22,7 +29,7 @@ class Config {
   }
   save() {
     localStorage.setItem(this.name, JSON.stringify(this.export()))
-  };
+  }
 
   export() {
     return {
@@ -53,11 +60,4 @@ class Config {
     return (this.include[titre] === groupe || groupe === null) && ! this.exclude[titre];
   }
 
-  update() {
-    for (const input of this.filieres) {
-      if (input.checked) {
-        console.log(input.value);
-      }
-    }
-  }
 }
