@@ -15,9 +15,9 @@ document.getElementById('toggle-config').addEventListener('click', () => {
 
 document.getElementById('add-include-btn').addEventListener('click', function (ev) {
   const [titleInput, groupInput] = this.parentNode.getElementsByTagName('input');
-  config.addInclusion(titleInput, groupInput);
+  config.inputInclude(titleInput, groupInput);
 });
 document.getElementById('add-exclude-btn').addEventListener('click', function (ev) {
   const titleInput = this.parentNode.getElementsByTagName('input')[0];
-  config.addExclusion(titleInput);
+  config.inputExclude(titleInput);
 });

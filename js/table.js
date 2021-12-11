@@ -78,8 +78,7 @@ class Table{
     closeBtn.classList.add('cross');
     closeBtn.innerHTML = 'x';
     closeBtn.addEventListener('click', () => {
-      this.config.exclude[titre] = true;
-      this.update();
+      this.config.addExclusion(titre);
     });
 
     const container = document.createElement('div');

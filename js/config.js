@@ -3,10 +3,10 @@ class Config {
     this.name = 'config';
     this.load();
     ///////////// Include Input /////////////
-    this.includeList = document.getElementById('include');
-    this.excludeList = document.getElementById('exclude');
-    this.addInclude = document.getElementById('add-include');
-    this.addExclude = document.getElementById('add-exclude');
+    this.includeListDOM = document.getElementById('include');
+    this.excludeListDOM = document.getElementById('exclude');
+    this.addIncludeDOM = document.getElementById('add-include');
+    this.addExcludeDOM = document.getElementById('add-exclude');
     this.setUpDOM();
   }
 
@@ -22,11 +22,10 @@ class Config {
       inputGroup.setAttribute('type', 'text');
       inputGroup.value = group;
       const self = this;
-      // Only one letter can be entered for the group input
       inputGroup.addEventListener('input', function (ev) {
-        this.value = ev.data;
-        self.include[title] = this.value;
-        table.update();
+        this.value = ev.data; // A group is only one character
+        self.include[title] = this.value; // Update config
+        table.update(); // Update table
       });
       li.appendChild(inputGroup);
     }
@@ -45,32 +44,38 @@ class Config {
     return li;
   }
 
-  addInclusion(titleInput, groupInput) {
+  addInclusion(title, group) {
+    this.include[title] = group;
+    this.includeListDOM.insertBefore(
+      this.makeInput(title, this.include[title]),
+      this.addIncludeDOM
+    );
+    table.update();
+  }
+  inputInclude(titleInput, groupInput) {
     const [title, group] = [titleInput.value, groupInput.value];
     // If the title and group is valid
     if (title && group) {
-      this.include[title] = group;
-      this.includeList.insertBefore(
-        this.makeInput(title, this.include[title]),
-        this.addInclude
-      );
+      this.addInclusion(title, group);
       titleInput.value = '';
       groupInput.value = '';
-      table.update();
       return;
     }
   }
-  addExclusion(titleInput) {
+  addExclusion(title) {
+    this.exclude[title] = true;
+    this.excludeListDOM.insertBefore(
+      this.makeInput(title),
+      this.addExcludeDOM
+    );
+    table.update();
+  }
+  inputExclude(titleInput) {
     const title = titleInput.value;
     // If the title is valid
     if (title) {
-      this.exclude[title] = true;
-      this.excludeList.insertBefore(
-        this.makeInput(title),
-        this.addExclude
-      );
+      this.addExclusion(title);
       titleInput.value = '';
-      table.update();
       return;
     }
   }
@@ -78,19 +83,19 @@ class Config {
   setUpDOM() {
     const self = this;
     document.querySelector('#add-include input:nth-child(2)').addEventListener('input', function (ev) {
-      this.value = ev.data;
-      self.include[title] = this.value;
-      table.update();
+      this.value = ev.data; // A group is only one character
+      self.include[title] = this.value; // Update config
+      table.update(); // Update table
     });
     ///////////// Iterate over saved config /////////////
     for (const filiere of this.filieres) {
       document.getElementById(filiere).checked = true;
     }
     for (const title in this.include) {
-      this.includeList.insertBefore(this.makeInput(title, this.include[title]), this.addInclude);
+      this.includeListDOM.insertBefore(this.makeInput(title, this.include[title]), this.addIncludeDOM);
     }
     for (const title in this.exclude) {
-      this.excludeList.insertBefore(this.makeInput(title), this.addExclude);
+      this.excludeListDOM.insertBefore(this.makeInput(title), this.addExcludeDOM);
     }
   }
 
