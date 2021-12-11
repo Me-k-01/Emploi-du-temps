@@ -26,7 +26,7 @@
       </body>
       <div id="config" >
         <section>
-          <h2>Filière</h2>
+          <h2>Filières</h2>
           <form id="filiere" action="#">
             <div>
               <input type="checkbox" id="21L3-INF" value="21L3-INF"/>
@@ -39,7 +39,7 @@
           </form>
         </section>
         <section>
-          <h2>Inclure groupe</h2>
+          <h2>Groupes à inclure</h2>
           <ul id="include">
             <li id="add-include">
               <input type="text" value="" required/>
@@ -51,7 +51,7 @@
           </ul>
         </section>
         <section>
-          <h2>Exclure</h2>
+          <h2>Matière à exclure</h2>
           <ul id="exclude">
             <li id="add-exclude">
               <input class="exclude-title" type="text" value="" required/>

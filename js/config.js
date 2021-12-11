@@ -84,7 +84,7 @@ class Config {
     const self = this;
     document.querySelector('#add-include input:nth-child(2)').addEventListener('input', function (ev) {
       this.value = ev.data.toUpperCase(); // A group is only one character
-      const title = this.parentNode.firstChild().value;
+      const title = this.parentNode.firstChild.value;
       self.include[title] = this.value; // Update config
       table.update(); // Update table
     });
