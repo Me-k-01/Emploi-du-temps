@@ -44,10 +44,10 @@
             <li>
               <input type="text" value="">
               <input type="text" value="">
-              <button id="add" type="button" name="button">
+              <button class="add" type="button" name="button">
                 <i class="fas fa-plus"></i>
               </button>
-              </li>
+            </li>
           </ul>
         </section>
         <section>
@@ -55,8 +55,8 @@
           <ul id="exclude">
             <li>
               <input class="exclude-title" type="text" value="">
-              <button class="del" type="button" name="button">
-                <i class="fas fa-trash"></i>
+              <button class="add" type="button" name="button">
+                <i class="fas fa-plus"></i>
               </button>
             </li>
           </ul>

@@ -6,12 +6,6 @@ class Config {
     this.setUpDOM();
 
   }
-  addInclusion(title, group) {
-    this.include[title] = group;
-  }
-  addExclusion(title) {
-    this.exclude[title] = true;
-  }
 
   makeInput(title, group) {
     const li = document.createElement('li');
@@ -41,25 +35,30 @@ class Config {
     return li;
   }
 
+  addInclusion(title, group) {
+    this.include[title] = group;
+    this.includeList.appendChild(this.makeInput(title, group));
+  }
+  addExclusion(title) {
+    this.exclude[title] = true;
+    this.excludeList.appendChild(this.makeInput(title));
+  }
+
   setUpDOM() {
     ///////////// Include Input /////////////
+    this.includeList = document.getElementById("include");
+    this.excludeList = document.getElementById("exclude");
 
 
     ///////////// Iterate over saved config /////////////
     for (const filiere of this.filieres) {
       document.getElementById(filiere).checked = true;
     }
-
-
-    this.includeList = document.getElementById("include");
     for (const title in this.include) {
-      const li = this.makeInput(title, this.include[title]);
-      this.includeList.appendChild(li);
+      this.includeList.appendChild(this.makeInput(title, this.include[title]));
     }
-    this.excludeList = document.getElementById("exclude");
     for (const title in this.exclude) {
-      const li = this.makeInput(title);
-      this.excludeList.appendChild(li);
+      this.excludeList.appendChild(this.makeInput(title));
     }
   }
 
