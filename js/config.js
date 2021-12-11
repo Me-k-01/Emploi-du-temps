@@ -33,6 +33,8 @@ class Config {
     addBtn.appendChild(addIcon);
     addBtn.addEventListener('click', ev => {
       li.remove();
+      delete this.include[title];
+      table.update();
     })
     li.appendChild(addBtn);
 
