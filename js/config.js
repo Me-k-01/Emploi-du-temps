@@ -12,23 +12,19 @@ class Config {
 
   makeInput(title, group) {
     const li = document.createElement('li');
-
     const inputTitle = document.createElement('input');
     inputTitle.setAttribute('type', 'text');
     inputTitle.value = title;
     li.appendChild(inputTitle);
-
-
-
-    const addBtn = document.createElement('button');
-    const addIcon = document.createElement('i');
-    addIcon.className = 'fas fa-trash';
-    addBtn.appendChild(addIcon);
-
+    const delBtn = document.createElement('button');
+    const delIcon = document.createElement('i');
+    delIcon.className = 'fas fa-trash';
+    delBtn.appendChild(delIcon);
 
     if (group) {
       const inputGroup = document.createElement('input');
       inputGroup.setAttribute('type', 'text');
+      inputGroup.name = title;
       inputGroup.value = group;
       const self = this;
       inputGroup.addEventListener('input', function (ev) {
@@ -37,19 +33,19 @@ class Config {
         table.update(); // Update table
       });
       li.appendChild(inputGroup);
-      addBtn.addEventListener('click', ev => {
+      delBtn.addEventListener('click', ev => {
         delete this.include[title];
         table.update();
         li.remove();
       });
     } else {
-      addBtn.addEventListener('click', ev => {
+      delBtn.addEventListener('click', ev => {
         delete this.exclude[title];
         table.update();
         li.remove();
       });
     }
-    li.appendChild(addBtn);
+    li.appendChild(delBtn);
     return li;
   }
 
@@ -63,6 +59,15 @@ class Config {
   }
   inputInclude(titleInput, groupInput) {
     const [title, group] = [titleInput.value, groupInput.value];
+    // If the matter is already included
+    if (this.include[title]) {
+      const liOriginal = document.querySelector(`input[name='${title}']`).parentNode; // Select original include input li
+      liOriginal.children[1].value = group; // Update its group
+      titleInput.value = '';
+      groupInput.value = '';
+      table.update();
+      return;
+    }
     // If the title and group is valid
     if (title && group) {
       this.addInclusion(title, group);
@@ -82,7 +87,7 @@ class Config {
   inputExclude(titleInput) {
     const title = titleInput.value;
     // If the title is valid
-    if (title) {
+    if (title && ! this.exclude[title]) {
       this.addExclusion(title);
       titleInput.value = '';
       return;
