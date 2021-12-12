@@ -6,7 +6,7 @@ table.fill();
 requestData(config.filieres, res => {
   table.matters = res;
   table.update();
-  // table.cache();
+  table.cache();
 });
 
 function update() {
@@ -14,7 +14,15 @@ function update() {
   requestData(config.filieres, res => {
     table.matters = res;
     table.update();
-    // table.cache();
+    table.cache();
+  });
+}
+
+function copy() {
+  navigator.clipboard.writeText(config.export()).then(function() {
+    /* presse-papiers modifié avec succès */
+  }, function() {
+    /* échec de l’écriture dans le presse-papiers */
   });
 }
 

@@ -62,6 +62,13 @@
             </li>
           </ul>
         </section>
+        <section>
+          <div>
+            <button type="button" name="button" onclick=""><i class="fas fa-file-import"></i></button>
+            <button type="button" name="button" onclick="copy()"><i class="fas fa-file-export"></i></button>
+          </div>
+          <button id="save" type="button" name="button" onclick="config.save()">Save</button>
+        </section>
       </div>
     </main>
   </body>

@@ -137,11 +137,11 @@ class Config {
   }
 
   export() {
-    return {
+    return JSON.stringify({
       filieres: this.filieres,
       include: this.include,
       exclude: this.exclude
-    };
+    });
   }
   importJSON(str) {
     try {
