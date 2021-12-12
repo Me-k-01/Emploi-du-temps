@@ -52,19 +52,6 @@ class Table{
     }
   }
 
-  clear() {
-    for (const d of this.days) {
-      for (const h of this.hours) {
-        document.getElementById(this.makeId(d, h)).innerHTML = '';
-      }
-    }
-  }
-
-  update() {
-    this.clear();
-    this.fill();
-  }
-
   formatToDOM({titre, salle}) { // Matter to DOM element
     const title = document.createElement('p');
     title.innerHTML = titre;
@@ -120,6 +107,13 @@ class Table{
     document.getElementById(id).appendChild(div);
   }
 
+  clear() {
+    for (const d of this.days) {
+      for (const h of this.hours) {
+        document.getElementById(this.makeId(d, h)).innerHTML = '';
+      }
+    }
+  }
   fill() {
     for (const mtr of this.matters) {
       // filtrage par nom de groupe suivant la configuration
@@ -130,5 +124,16 @@ class Table{
         this.adjustSize(div, mtr);
       }
     }
+  }
+  update() {
+    this.clear();
+    this.fill();
+  }
+
+  cache() {
+    localStorage.setItem('table', JSON.stringify(this.matters));
+  }
+  retrieve() {
+    this.matters = JSON.parse(localStorage.getItem('table')) || [];
   }
 }

@@ -28,6 +28,12 @@
         <section>
           <h2>Filières</h2>
           <form id="filiere" action="#">
+            <?php
+
+              echo "<div><input type='checkbox' id='21L3-INF' value='21L3-INF'/>
+              <label for='21L3-INF'>L3 Info</label></div>";
+
+            ?>
             <div>
               <input type="checkbox" id="21L3-INF" value="21L3-INF"/>
               <label for="21L3-INF">L3 Info</label>

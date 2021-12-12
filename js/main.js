@@ -1,15 +1,18 @@
 const config = new Config();
 const table = new Table(document.getElementById('schedule'), config);
+table.retrieve();
+table.fill();
 
 requestData(config.filieres, res => {
   table.matters = res;
-  table.fill();
+  table.update();
+  // table.cache();
 })
 
 ///////////// Window resize event /////////////
 window.addEventListener('resize', () => table.update());
 
-///////////// Show and hide config menu ///////////// 
+///////////// Show and hide config menu /////////////
 document.getElementById('toggle-config').addEventListener('click', () => {
   const conf = document.getElementById('config');
   conf.className = conf.className === 'visible' ? '': 'visible';

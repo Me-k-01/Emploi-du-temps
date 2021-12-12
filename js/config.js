@@ -115,7 +115,7 @@ class Config {
   }
 
   load() {
-    const data = localStorage.getItem(this.name);
+    const data = JSON.parse(localStorage.getItem(this.name));
     if (! data) {
       this.importConfig(presets);
     } else {
@@ -124,7 +124,7 @@ class Config {
     }
   }
   save() {
-    localStorage.setItem(this.name, JSON.stringify(this.export()))
+    localStorage.setItem(this.name, JSON.stringify(this.export()));
   }
 
   export() {
