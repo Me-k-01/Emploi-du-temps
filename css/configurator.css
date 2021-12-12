@@ -109,23 +109,32 @@ button:hover, button:focus {
   align-items: center;
 }
 /****************** Checkbox ******************/
-#filiere > div { margin: 5px; }
+#filiere > div { margin: 10px; }
 input[type="checkbox"] { opacity: 0; position: absolute; pointer-events: none } /* hide checkbox default button */
 label {
   display: block; position: relative;
   cursor: pointer; user-select: none;
   text-align: center;
-  background-color: var(--grey);
-  border: 5px solid var(--dark);
+  /* background-color: var(--grey); */
+  /* border: 5px solid var(--dark); */
   border-radius: 50px;
   font-size: 1.2em;
   width: 100px; padding: 5px;
-  transition: 0.2s;
+
+  background: var(--dark);
+  border: none;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  font-weight: bold;
+  background-image: linear-gradient(var(--grey), var(--grey)), linear-gradient(45deg, rgba(86,15,111,1) 0%, rgba(55,76,166,1) 100%);
+  box-shadow: 0 0 5px rgba(91, 46, 166, 0.5);
+  transition: .2s;
 }
 :checked + label {
-  background-color: rgb(50, 43, 213);
-  border: 5px solid rgb(26, 22, 125);
+  background-image: linear-gradient(45deg, rgba(86,15,111,1) 0%, rgba(55,76,166,1) 100%), linear-gradient(45deg, rgba(86,15,111,1) 0%, rgba(55,76,166,1) 100%);
+  box-shadow: 0 0 2em rgba(96, 50, 172, 0.5);
 }
 :hover + label {
-  border: 5px solid rgba(255, 255, 255, 0.5);
+  /* border: 5px solid rgba(255, 255, 255, 0.5); */
+  transform: scale(1.2);
 }
