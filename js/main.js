@@ -7,7 +7,16 @@ requestData(config.filieres, res => {
   table.matters = res;
   table.update();
   // table.cache();
-})
+});
+
+function update() {
+  config.update();
+  requestData(config.filieres, res => {
+    table.matters = res;
+    table.update();
+    // table.cache();
+  });
+}
 
 ///////////// Window resize event /////////////
 window.addEventListener('resize', () => table.update());

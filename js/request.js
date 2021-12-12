@@ -1,4 +1,5 @@
 function requestData(array, fun) {
+  if (array === []) return fun([]);
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState !== 4) { return; } // Not ready

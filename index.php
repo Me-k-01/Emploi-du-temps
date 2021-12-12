@@ -33,7 +33,7 @@
               $stmt = $conn->query('SELECT * FROM Filiere');
               while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $f = $row['id'];
-                echo "<div><input type='checkbox' id='$f' value='$f'/>
+                echo "<div><input type='checkbox' onchange='update()' autocomplete='off' id='$f'/>
                   <label for='$f'>".$row['nom']."</label></div>";
               }
             ?>

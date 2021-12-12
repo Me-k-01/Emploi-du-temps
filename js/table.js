@@ -120,7 +120,6 @@ class Table{
       if (this.config.contains(mtr)) {
         const div = this.formatToDOM(mtr);
         this.set(this.makeId(mtr.jour, mtr.horaire), div);
-        // console.log(mtr.titre);
         this.adjustSize(div, mtr);
       }
     }

@@ -5,8 +5,9 @@ class Config {
     ///////////// Include Input /////////////
     this.includeListDOM = document.getElementById('include');
     this.excludeListDOM = document.getElementById('exclude');
-    this.addIncludeDOM = document.getElementById('add-include');
-    this.addExcludeDOM = document.getElementById('add-exclude');
+    this.addIncludeDOM  = document.getElementById('add-include');
+    this.addExcludeDOM  = document.getElementById('add-exclude');
+    this.filieresInputDOM  = document.querySelectorAll('#filiere input');
     this.setUpDOM();
   }
 
@@ -111,6 +112,14 @@ class Config {
     }
     for (const title in this.exclude) {
       this.excludeListDOM.insertBefore(this.makeInput(title), this.addExcludeDOM);
+    }
+  }
+  update() {
+    this.filieres = [];
+    for (const filiere of this.filieresInputDOM) {
+      if (filiere.checked) {
+        this.filieres.push(filiere.id);
+      }
     }
   }
 
