@@ -7,13 +7,7 @@
   }
 
   //////////// Connect to database ////////////
-  require "creditential.php";
-  try { // Create connection
-    $conn = new PDO("mysql:host=$servername;dbname=$databasename", $username, $password);
-  } catch (Exeption $err) {
-    http_response_code(405);
-    die ("Connection failed: " . $err->getMessage());
-  }
+  require "connect.php";
 
   //////////// Query select ////////////
   $arr = json_decode($_POST['query']);

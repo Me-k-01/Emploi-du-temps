@@ -1,5 +1,5 @@
 const presets = {
-  filieres: ['21L3-INF'],
+  filieres: [1],
   include: {
     "Anglais": "1",
     "Bases de données 3": "A",

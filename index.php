@@ -29,19 +29,14 @@
           <h2>Filières</h2>
           <form id="filiere" action="#">
             <?php
-
-              echo "<div><input type='checkbox' id='21L3-INF' value='21L3-INF'/>
-              <label for='21L3-INF'>L3 Info</label></div>";
-
+              require "php/connect.php";
+              $stmt = $conn->query('SELECT * FROM Filiere');
+              while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $f = $row['id'];
+                echo "<div><input type='checkbox' id='$f' value='$f'/>
+                  <label for='$f'>".$row['nom']."</label></div>";
+              }
             ?>
-            <div>
-              <input type="checkbox" id="21L3-INF" value="21L3-INF"/>
-              <label for="21L3-INF">L3 Info</label>
-            </div>
-            <div>
-              <input type="checkbox" id="21L3-MAT" value="21L3-MAT"/>
-              <label for="21L3-MAT">L3 Math</label>
-            </div>
           </form>
         </section>
         <section>
