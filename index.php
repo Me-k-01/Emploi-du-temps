@@ -64,6 +64,7 @@
         </section>
         <section>
           <div>
+            <input id="import" type="file" />
             <button type="button" name="button" onclick=""><i class="fas fa-file-import"></i></button>
             <button type="button" name="button" onclick="copy()"><i class="fas fa-file-export"></i></button>
           </div>

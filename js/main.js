@@ -26,9 +26,17 @@ function copy() {
   });
 }
 
+document.getElementById('import').addEventListener('change', ev => {
+  var reader = new FileReader();
+  reader.onload = ev => config.importJSON(ev.target.result);
+  reader.readAsText(ev.target.files[0]);
+});
+
+
 ///////////// Window resize event /////////////
 window.addEventListener('resize', () => table.update());
-
+const conf = document.getElementById('config');
+conf.className = conf.className === 'visible' ? '': 'visible';
 ///////////// Show and hide config menu /////////////
 document.getElementById('toggle-config').addEventListener('click', () => {
   const conf = document.getElementById('config');

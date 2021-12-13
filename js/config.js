@@ -124,7 +124,8 @@ class Config {
   }
 
   load() {
-    const data = JSON.parse(localStorage.getItem(this.name));
+    // const data = JSON.parse(localStorage.getItem(this.name));
+    let data;
     if (! data) {
       this.importConfig(presets);
     } else {
@@ -140,7 +141,7 @@ class Config {
     return JSON.stringify({
       filieres: this.filieres,
       include: this.include,
-      exclude: this.exclude
+      exclude: Object.keys(this.exclude)
     });
   }
   importJSON(str) {
@@ -150,15 +151,18 @@ class Config {
         console.error('Configuration invalide');
         return;
       }
-      importConfig(data);
+      this.importConfig(data);
     } catch (err) {
       console.error('Configuration invalide');
     }
   }
-  importConfig({include, exclude, filieres}) {
-    this.include = include;
-    this.exclude = exclude;
+  importConfig({filieres, include, exclude}) {
     this.filieres = filieres;
+    this.include = include;
+    this.exclude = {};
+    for (const matter of exclude) {
+      this.exclude[matter] = true;
+    }
   }
 
   contains({titre, groupe}) {
