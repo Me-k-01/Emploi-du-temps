@@ -118,7 +118,7 @@ label, #save {
   border-radius: 50px;
   font-size: 1.2em; line-height: 1.5em;
   height: 1.5em; width: 100px;
-  padding: 5px;
+  padding: 5px; margin: 0;
 
   background: var(--dark);
   border: none;
@@ -129,11 +129,21 @@ label, #save {
   box-shadow: 0 0 5px rgba(91, 46, 166, 0.5);
   transition: .2s;
 }
-:checked + label, #save:active {
+#save {
+  margin: 25px auto;
+  justify-content: center;
+  line-height: 0; height: 2em;
+  width: 50%;
+  transition: .1s;
+}
+:checked + label, #save:hover {
   background-image: linear-gradient(45deg, rgba(86,15,111,1) 0%, rgba(55,76,166,1) 100%), linear-gradient(45deg, rgba(86,15,111,1) 0%, rgba(55,76,166,1) 100%);
   box-shadow: 0 0 2em rgba(96, 50, 172, 0.5);
 }
-:hover + label, #save:hover {
+:hover + label {
   /* border: 5px solid rgba(255, 255, 255, 0.5); */
   transform: scale(1.2);
+}
+#save:active {
+  transform: scale(.92);
 }
