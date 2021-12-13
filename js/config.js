@@ -103,6 +103,29 @@ class Config {
       self.include[title] = this.value; // Update config
       table.update(); // Update table
     });
+    this.updateDOM();
+  }
+  updateFilieres() {
+    this.filieres = [];
+    for (const filiere of this.filieresInputDOM) {
+      if (filiere.checked) {
+        this.filieres.push(filiere.id);
+      }
+    }
+  }
+  clearDOM() {
+    for (const filiere of this.filieresInputDOM) {
+      filiere.checked = false;
+    }
+    let p = this.addIncludeDOM.parentNode;
+    p.innerHTML = '';
+    p.appendChild(this.addIncludeDOM);
+    p = this.addExcludeDOM.parentNode;
+    p.innerHTML = '';
+    p.appendChild(this.addExcludeDOM);
+  }
+  updateDOM() {
+    this.clearDOM();
     ///////////// Iterate over saved config /////////////
     for (const filiere of this.filieres) {
       document.getElementById(filiere).checked = true;
@@ -114,24 +137,10 @@ class Config {
       this.excludeListDOM.insertBefore(this.makeInput(title), this.addExcludeDOM);
     }
   }
-  update() {
-    this.filieres = [];
-    for (const filiere of this.filieresInputDOM) {
-      if (filiere.checked) {
-        this.filieres.push(filiere.id);
-      }
-    }
-  }
 
   load() {
-    // const data = JSON.parse(localStorage.getItem(this.name));
-    let data;
-    if (! data) {
-      this.importConfig(presets);
-    } else {
-      this.include = data.include;
-      this.exclude = data.exclude;
-    }
+    const data = JSON.parse(localStorage.getItem(this.name));
+    this.importConfig(data || presets);
   }
   save() {
     localStorage.setItem(this.name, JSON.stringify(this.export()));
@@ -155,6 +164,12 @@ class Config {
     } catch (err) {
       console.error('Configuration invalide');
     }
+    this.updateDOM();
+    table.update();
+    requestData(this.filieres, res => {
+      table.matters = res;
+      table.update();
+    });
   }
   importConfig({filieres, include, exclude}) {
     this.filieres = filieres;

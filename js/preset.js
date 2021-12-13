@@ -8,5 +8,5 @@ const presets = {
     "Réseaux 3": "A",
     "Techniques de recherche de stage et d'emploi": "6"
   },
-  exclude: ["UEO PPP3"]
+  exclude: []
 }

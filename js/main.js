@@ -3,14 +3,8 @@ const table = new Table(document.getElementById('schedule'), config);
 table.retrieve();
 table.fill();
 
-requestData(config.filieres, res => {
-  table.matters = res;
-  table.update();
-  table.cache();
-});
-
 function update() {
-  config.update();
+  config.updateFilieres();
   requestData(config.filieres, res => {
     table.matters = res;
     table.update();
@@ -25,6 +19,11 @@ function copy() {
     /* échec de l’écriture dans le presse-papiers */
   });
 }
+
+document.getElementById('save').addEventListener('click', () => {
+  config.save();
+  table.cache();
+});
 
 document.getElementById('import').addEventListener('change', ev => {
   var reader = new FileReader();
