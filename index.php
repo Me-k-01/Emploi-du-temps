@@ -65,8 +65,8 @@
         <section>
           <form>
             <input id="import" name="import" type="file" />
-            <label class="file-transfer" for="import"><i class="fas fa-download"></i></label>
-            <button class="file-transfer" type="button" name="button" onclick="config.export()"><i class="fas fa-upload"></i></button>
+            <label class="file-transfer" for="import"><i class="fas fa-upload"></i></label>
+            <button class="file-transfer" type="button" name="button" onclick="config.export()"><i class="fas fa-download"></i></button>
           </form>
           <button id="save" type="button" name="button">Save</button>
         </section>
