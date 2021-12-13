@@ -2,13 +2,13 @@ const config = new Config();
 const table = new Table(document.getElementById('schedule'), config);
 table.retrieve();
 table.fill();
+table.cache();
 
 function update() {
   config.updateFilieres();
   requestData(config.filieres, res => {
     table.matters = res;
     table.update();
-    table.cache();
   });
 }
 

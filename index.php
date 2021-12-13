@@ -34,7 +34,7 @@
               while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 $f = $row['id'];
                 echo "<div><input type='checkbox' onchange='update()' autocomplete='off' id='$f'/>
-                  <label for='$f'>".$row['nom']."</label></div>";
+                  <label for='$f' class='filiere'>".$row['nom']."</label></div>";
               }
             ?>
           </form>
@@ -63,11 +63,11 @@
           </ul>
         </section>
         <section>
-          <h2>Importer ou exporter</h2>
-          <div>
-            <input id="import" type="file" />
-            <button type="button" name="button" onclick="config.export()"><i class="fas fa-file-export"></i></button>
-          </div>
+          <form>
+            <input id="import" name="import" type="file" />
+            <label class="file-transfer" for="import"><i class="fas fa-download"></i></label>
+            <button class="file-transfer" type="button" name="button" onclick="config.export()"><i class="fas fa-upload"></i></button>
+          </form>
           <button id="save" type="button" name="button">Save</button>
         </section>
       </div>
