@@ -20,10 +20,8 @@
   </head>
   <body>
     <main>
-      <body>
-        <button id="toggle-config" type="button" name="button"><i class="fas fa-cog"></i></button>
-        <table id="schedule"></table>
-      </body>
+      <button id="toggle-config" type="button" name="button"><i class="fas fa-cog"></i></button>
+      <table id="schedule"></table>
       <div id="config" >
         <section>
           <h2>Filières</h2>
