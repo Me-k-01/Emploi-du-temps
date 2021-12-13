@@ -143,7 +143,7 @@ class Config {
     this.importConfig(data || presets);
   }
   save() {
-    localStorage.setItem(this.name, JSON.stringify(this.export()));
+    localStorage.setItem(this.name, this.export());
   }
 
   export() {
