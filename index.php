@@ -63,10 +63,10 @@
           </ul>
         </section>
         <section>
+          <h2>Importer ou exporter</h2>
           <div>
             <input id="import" type="file" />
-            <button type="button" name="button" onclick=""><i class="fas fa-file-import"></i></button>
-            <button type="button" name="button" onclick="copy()"><i class="fas fa-file-export"></i></button>
+            <button type="button" name="button" onclick="config.export()"><i class="fas fa-file-export"></i></button>
           </div>
           <button id="save" type="button" name="button">Save</button>
         </section>

@@ -143,10 +143,20 @@ class Config {
     this.importConfig(data || presets);
   }
   save() {
-    localStorage.setItem(this.name, this.export());
+    localStorage.setItem(this.name, this.formatToJSON());
   }
-
   export() {
+    let blob = new Blob([this.formatToJSON()], {type: 'text/json'}),
+      e = document.createEvent('MouseEvents'),
+      a = document.createElement('a');
+
+    a.download = this.name+'.json';
+    a.href = window.URL.createObjectURL(blob);
+    a.dataset.downloadurl =  ['text/json', a.download, a.href].join(':');
+    e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+    a.dispatchEvent(e);
+  }
+  formatToJSON() {
     return JSON.stringify({
       filieres: this.filieres,
       include: this.include,
