@@ -108,9 +108,10 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 /****************** Checkbox ******************/
-form > div { margin: 5px 1em; }
+form > div { display: block; margin: 5px 1%; }
 input[type="checkbox"] { opacity: 0; position: absolute; pointer-events: none } /* hide checkbox default button */
 .filiere, #save {
   display: block; position: relative;
