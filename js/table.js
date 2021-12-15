@@ -104,7 +104,13 @@ class Table{
   }
 
   set(id, div) {
-    document.getElementById(id).appendChild(div);
+    const parent = document.getElementById(id);
+    for (const matter of parent.children) {
+      if (matter.outerHTML === div.outerHTML) {
+        return;
+      }
+    }
+    parent.appendChild(div);
   }
 
   clear() {
@@ -119,8 +125,8 @@ class Table{
       // filtrage par nom de groupe suivant la configuration
       if (this.config.contains(mtr)) {
         const div = this.formatToDOM(mtr);
-        this.set(this.makeId(mtr.jour, mtr.horaire), div);
         this.adjustSize(div, mtr);
+        this.set(this.makeId(mtr.jour, mtr.horaire), div);
       }
     }
   }
