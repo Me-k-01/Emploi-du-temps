@@ -82,7 +82,10 @@ class Table{
     // const size = getComputedStyle(div).getPropertyValue('--total-width');
     // console.log(horaire, duree);
     // console.log(div[this.var.getSize]);
+    console.log(div);
+    console.log(div.clientWidth, div.clientHeight);
     const size = (div[this.var.getSize]+14); // scrollbar: 10px, border; 4px
+
     div.style.transform = `translate${this.var.coord}(${size * this.hourToAmount('00'+horaire.substring(2))}px)`;
     div.style[this.var.size] = (size) * this.hourToAmount(duree) + 'px';
   }
@@ -125,8 +128,8 @@ class Table{
       // filtrage par nom de groupe suivant la configuration
       if (this.config.contains(mtr)) {
         const div = this.formatToDOM(mtr);
-        this.adjustSize(div, mtr);
         this.set(this.makeId(mtr.jour, mtr.horaire), div);
+        this.adjustSize(div, mtr);
       }
     }
   }

@@ -53,7 +53,7 @@ table td > div > div {
   overflow-x: scroll; overflow-y: hidden;
   pointer-events: all;
   justify-content: center;
-  height: inherit; width: inherit;
+  height: var(--height); width: var(--width);
 }
 .reverse td div div {
   overflow-x: hidden; overflow-y: scroll;
