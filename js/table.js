@@ -79,11 +79,6 @@ class Table{
     return ((+hms[0]) * 3600 + (+hms[1]) * 60 + (+hms[2])) / 3600;
   }
   adjustSize(div, {horaire, duree}) {
-    // const size = getComputedStyle(div).getPropertyValue('--total-width');
-    // console.log(horaire, duree);
-    // console.log(div[this.var.getSize]);
-    console.log(div);
-    console.log(div.clientWidth, div.clientHeight);
     const size = (div[this.var.getSize]+14); // scrollbar: 10px, border; 4px
 
     div.style.transform = `translate${this.var.coord}(${size * this.hourToAmount('00'+horaire.substring(2))}px)`;
