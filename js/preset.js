@@ -1,12 +1,12 @@
 const presets = {
   filieres: ["8"],
   include: {
-    "Anglais": "1",
-    "Bases de données 3": "A",
-    "Graphes": "A",
-    "Programmation fonctionnelle": "A",
-    "Réseaux 3": "A",
-    "Techniques de recherche de stage et d'emploi": "6"
+    "Anglais":"1",
+    "Technologies du web 4 et Projet":"1",
+    "Théorie des langages":"1",
+    "Projet professionnel personnalisé":"1",
+    "Architecture des ordinateurs 3":"1",
+    "Types de données, Preuves":"A"
   },
   exclude: []
 }
